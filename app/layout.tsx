@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import './globals.css'
-import { Navbar } from '@/components/Navbar'
-import { Footer } from '@/components/Footer'
+import { LayoutShell } from '@/components/LayoutShell'
 
 export const metadata: Metadata = {
   title: 'Prinz Oil | Premium Energy Solutions',
@@ -19,9 +18,9 @@ export default function RootLayout({
         <link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700,900&display=swap" rel="stylesheet" />
       </head>
       <body className="font-satoshi">
-        <Navbar />
-        {children}
-        <Footer />
+        <LayoutShell>
+          {children}
+        </LayoutShell>
       </body>
     </html>
   )
