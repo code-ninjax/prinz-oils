@@ -5,23 +5,20 @@ import { Button } from '@/components/Button';
 export default function ContactPage() {
   return (
     <main className="min-h-screen bg-white font-sans">
-      <section className="relative h-[50vh] flex items-center pt-20 overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <Image 
-            src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop"
-            alt="Contact Us"
-            fill
-            className="object-cover"
-          />
-          <div className="absolute inset-0 bg-primary/40 backdrop-blur-[2px]" />
-          <div className="absolute inset-0 bg-gradient-to-b from-primary/20 via-primary/60 to-white" />
-        </div>
+      {/* Page Header */}
+      <section className="relative overflow-hidden bg-primary pt-32 pb-20 md:pt-40 md:pb-28">
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-accent/5 rounded-full blur-[120px] translate-x-1/2 -translate-y-1/2" />
+        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-accent/5 rounded-full blur-[120px] -translate-x-1/2 translate-y-1/2" />
         
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-5xl md:text-8xl font-black text-primary mb-6 leading-tight tracking-tight">
-            Get in <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-accent-dark">Touch</span>
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center gap-4 mb-6">
+            <div className="w-10 h-[2px] bg-accent" />
+            <span className="text-accent font-bold text-xs uppercase tracking-[0.3em]">Contact Us</span>
+          </div>
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-white mb-6 tracking-tight">
+            Get In Touch
           </h1>
-          <p className="text-xl md:text-2xl text-gray-700 max-w-2xl mx-auto font-normal leading-relaxed">
+          <p className="text-lg md:text-xl text-white/60 max-w-xl font-normal leading-relaxed">
             Ready to partner with a trusted petroleum distributor? We're here to discuss your supply needs.
           </p>
         </div>

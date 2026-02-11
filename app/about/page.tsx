@@ -6,19 +6,20 @@ import Link from 'next/link';
 export default function AboutPage() {
   return (
     <main className="min-h-screen bg-white font-sans">
-      {/* Simple Premium Header */}
-      <section className="relative min-h-[40vh] flex items-center justify-center overflow-hidden bg-primary pt-20">
+      {/* Page Header */}
+      <section className="relative overflow-hidden bg-primary pt-32 pb-20 md:pt-40 md:pb-28">
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-accent/5 rounded-full blur-[120px] translate-x-1/2 -translate-y-1/2" />
         <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-accent/5 rounded-full blur-[120px] -translate-x-1/2 translate-y-1/2" />
         
-        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-accent/20 text-accent font-black text-xs uppercase tracking-[0.3em] mb-8">
-            Discover Our Legacy
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center gap-4 mb-6">
+            <div className="w-10 h-[2px] bg-accent" />
+            <span className="text-accent font-bold text-xs uppercase tracking-[0.3em]">About Prinz-Oil</span>
           </div>
-          <h1 className="text-5xl md:text-8xl font-black text-white mb-8 tracking-tight">
-            About <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-accent-light">Prinz Oil</span>
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-white mb-6 tracking-tight">
+            Who We Are
           </h1>
-          <p className="text-xl md:text-2xl text-white/70 max-w-2xl mx-auto font-normal leading-relaxed">
+          <p className="text-lg md:text-xl text-white/60 max-w-xl font-normal leading-relaxed">
             A Nigerian company registered with the Corporate Affairs Commission, specializing in petroleum products distribution.
           </p>
         </div>
