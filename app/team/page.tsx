@@ -5,45 +5,6 @@ import { TeamCard } from '@/components/TeamCard';
 import { TeamModal } from '@/components/TeamModal';
 import { supabase } from '@/lib/supabaseClient';
 
-// Fallback data
-const DUMMY_TEAM = [
-  {
-    id: 1,
-    name: 'Progress Alpheaus Unyene',
-    role: 'Chief Executive Officer',
-    description: 'Leading Prinz-Oil Limited with a clear vision for growth in petroleum distribution across Nigeria.',
-    image_url: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=1974&auto=format&fit=crop'
-  },
-  {
-    id: 2,
-    name: 'Adenebari Annastecia Suanu-Nna Esq',
-    role: 'Group Chief Executive',
-    description: 'Overseeing group-level strategy and corporate governance for the company.',
-    image_url: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1976&auto=format&fit=crop'
-  },
-  {
-    id: 3,
-    name: 'Gideon Tanpiorun-obari Tee',
-    role: 'Chief Operating Officer',
-    description: 'Ensuring operational excellence and reliable distribution across all service areas.',
-    image_url: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=1974&auto=format&fit=crop'
-  },
-  {
-    id: 4,
-    name: 'Solomon Awajis Harold',
-    role: 'Logistics/Sales Manager',
-    description: 'Managing logistics operations and sales activities to ensure efficient product delivery.',
-    image_url: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=2070&auto=format&fit=crop'
-  },
-  {
-    id: 5,
-    name: 'Believe Manuchimson Worgu',
-    role: 'Group Tech-Head',
-    description: 'Driving technology initiatives and digital infrastructure for the company.',
-    image_url: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=1961&auto=format&fit=crop'
-  }
-];
-
 export default function TeamPage() {
   const [team, setTeam] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
@@ -58,15 +19,9 @@ export default function TeamPage() {
           .order('id', { ascending: true });
 
         if (error) throw error;
-        
-        if (data && data.length > 0) {
-          setTeam(data);
-        } else {
-          setTeam(DUMMY_TEAM);
-        }
+        if (data) setTeam(data);
       } catch (error) {
         console.error('Error fetching team:', error);
-        setTeam(DUMMY_TEAM);
       } finally {
         setLoading(false);
       }
@@ -106,7 +61,7 @@ export default function TeamPage() {
             </div>
             <div className="hidden md:flex gap-12 text-center">
                <div>
-                  <div className="text-4xl font-black text-primary mb-1">5</div>
+                  <div className="text-4xl font-black text-primary mb-1">{loading ? '–' : team.length}</div>
                   <div className="text-accent font-black text-xs uppercase tracking-widest">Key Staff</div>
                </div>
                <div>
@@ -118,9 +73,26 @@ export default function TeamPage() {
 
           {loading ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16">
-              {[1, 2, 3, 4, 5].map((i) => (
-                <div key={i} className="h-[500px] bg-gray-50 rounded-[2.5rem] animate-pulse"></div>
+              {[1, 2, 3].map((i) => (
+                <div key={i} className="rounded-[3rem] overflow-hidden border border-gray-50 h-[600px] flex flex-col">
+                  <div className="h-2/3 bg-gray-100 animate-pulse" />
+                  <div className="p-10 flex flex-col flex-1 bg-white -mt-12 rounded-t-[3rem] relative z-10 space-y-4">
+                    <div className="h-3 w-24 bg-gray-100 rounded-full animate-pulse" />
+                    <div className="h-6 w-48 bg-gray-100 rounded-full animate-pulse" />
+                    <div className="space-y-2 flex-1">
+                      <div className="h-3 w-full bg-gray-50 rounded-full animate-pulse" />
+                      <div className="h-3 w-4/5 bg-gray-50 rounded-full animate-pulse" />
+                      <div className="h-3 w-3/5 bg-gray-50 rounded-full animate-pulse" />
+                    </div>
+                    <div className="h-4 w-28 bg-gray-100 rounded-full animate-pulse" />
+                  </div>
+                </div>
               ))}
+            </div>
+          ) : team.length === 0 ? (
+            <div className="text-center py-20">
+              <p className="text-gray-400 text-xl">No team members added yet.</p>
+              <p className="text-gray-300 text-sm mt-2">Add team members from the admin dashboard.</p>
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16">

@@ -11,7 +11,7 @@ import {
   BatteryCharging, 
   Ship 
 } from 'lucide-react';
-import { TeamCard } from '@/components/TeamCard';
+import { TeamPreview } from '@/components/TeamPreview';
 import { HeroCarousel } from '@/components/HeroCarousel';
 
 export default function Home() {
@@ -180,54 +180,8 @@ export default function Home() {
       </section>
 
 
-      {/* Leadership Preview Section - Revived White Background */}
-      <section className="py-32 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
-            <div>
-              <div className="text-accent font-black tracking-[0.3em] uppercase text-xs mb-4">Leadership</div>
-              <h3 className="text-4xl md:text-5xl font-black text-primary">Driven by Experience</h3>
-            </div>
-            <Link href="/team" className="hidden md:flex items-center gap-4 text-primary font-black group">
-              <span className="text-lg">View Full Team</span>
-              <div className="w-12 h-12 rounded-full border border-primary/10 flex items-center justify-center group-hover:border-accent group-hover:bg-accent group-hover:text-white transition-all duration-300 text-primary">
-                <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
-              </div>
-            </Link>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
-            <TeamCard member={{
-              name: 'Progress Alpheaus Unyene',
-              role: 'Chief Executive Officer',
-              description: 'Leading Prinz-Oil Limited with a clear vision for growth in petroleum distribution across Nigeria.',
-              image_url: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=1974&auto=format&fit=crop'
-            }} />
-             <TeamCard member={{
-              name: 'Adenebari Annastecia Suanu-Nna Esq',
-              role: 'Group Chief Executive',
-              description: 'Overseeing group-level strategy and corporate governance for the company.',
-              image_url: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1976&auto=format&fit=crop'
-            }} />
-             <div className="sm:col-span-2 lg:col-span-1">
-               <TeamCard member={{
-                name: 'Gideon Tanpiorun-obari Tee',
-                role: 'Chief Operating Officer',
-                description: 'Ensuring operational excellence and reliable distribution across all service areas.',
-                image_url: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=1974&auto=format&fit=crop'
-              }} />
-             </div>
-          </div>
-          
-          <div className="mt-12 text-center md:hidden px-4">
-             <Link href="/team">
-                <Button className="w-full py-8 text-xl font-black bg-primary rounded-2xl shadow-xl">
-                  View Full Team
-                </Button>
-             </Link>
-          </div>
-        </div>
-      </section>
+      {/* Leadership Preview Section */}
+      <TeamPreview />
 
       {/* Final CTA */}
       <section className="py-32 bg-primary text-white relative overflow-hidden">
