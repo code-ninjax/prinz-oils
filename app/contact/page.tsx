@@ -22,7 +22,7 @@ export default function ContactPage() {
             Get in <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-accent-dark">Touch</span>
           </h1>
           <p className="text-xl md:text-2xl text-gray-700 max-w-2xl mx-auto font-normal leading-relaxed">
-            Ready to partner with Africa's leading energy innovator? We're here to listen and collaborate.
+            Ready to partner with a trusted petroleum distributor? We're here to discuss your supply needs.
           </p>
         </div>
       </section>
@@ -34,9 +34,9 @@ export default function ContactPage() {
               <h2 className="text-4xl font-black text-primary mb-12 tracking-tighter">Contact Information</h2>
               <div className="space-y-8">
                 {[
-                  { icon: MapPin, title: 'Headquarters', desc: '15 Prinz Oil Plaza, Victoria Island, Lagos, Nigeria' },
+                  { icon: MapPin, title: 'Headquarters', desc: 'No.8 RSU Maingate by Ikwere Road, Port Harcourt, Nigeria' },
                   { icon: Phone, title: 'Phone', desc: '+234 800 PRINZ OIL' },
-                  { icon: Mail, title: 'Email', desc: 'info@prinzoil.com' },
+                  { icon: Mail, title: 'Email', desc: 'Info@prinz-oil.com.ng' },
                 ].map((item, idx) => (
                   <div key={idx} className="flex gap-6 group">
                     <div className="w-16 h-16 bg-accent/10 rounded-2xl flex items-center justify-center text-accent group-hover:bg-accent group-hover:text-white transition-all duration-300">
@@ -51,13 +51,13 @@ export default function ContactPage() {
               </div>
 
               <div className="mt-20 p-12 bg-gray-50 rounded-[3rem] border border-gray-100">
-                <h3 className="text-2xl font-black text-primary mb-6">Global Support</h3>
+                <h3 className="text-2xl font-black text-primary mb-6">Distribution Support</h3>
                 <p className="text-gray-600 mb-8 leading-relaxed">
-                  Our dedicated team is available 24/7 for operational support and emergency response.
+                  Our team is available to assist with orders, delivery scheduling, and NMDPRA compliance queries.
                 </p>
                 <div className="flex gap-4">
-                  <span className="px-4 py-2 bg-white rounded-full text-xs font-black uppercase tracking-widest text-accent border border-accent/10">24/7 Operations</span>
-                  <span className="px-4 py-2 bg-white rounded-full text-xs font-black uppercase tracking-widest text-accent border border-accent/10">Global Response</span>
+                  <span className="px-4 py-2 bg-white rounded-full text-xs font-black uppercase tracking-widest text-accent border border-accent/10">Order by PO</span>
+                  <span className="px-4 py-2 bg-white rounded-full text-xs font-black uppercase tracking-widest text-accent border border-accent/10">Call to Order</span>
                 </div>
               </div>
             </div>

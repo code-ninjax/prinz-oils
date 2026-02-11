@@ -12,7 +12,7 @@ export const Footer = () => {
               PRINZ<span className="text-accent">OIL</span>
             </h2>
             <p className="text-gray-400 max-w-sm mb-6">
-              A leading force in Nigeria's oil and energy sector. Committed to sustainable operations, innovation, and global excellence.
+              A major distributor and marketer of refined petroleum products (AGO, PMS, HHK) serving fuel stations, industries, and oil & gas companies across Nigeria.
             </p>
             <div className="flex space-x-4">
               <a href="#" className="text-gray-400 hover:text-accent transition-colors"><Linkedin size={20} /></a>
@@ -38,7 +38,7 @@ export const Footer = () => {
             <ul className="space-y-4">
               <li className="flex items-start gap-3 text-gray-400">
                 <MapPin size={20} className="text-accent mt-1 flex-shrink-0" />
-                <span>123 Victoria Island,<br />Lagos, Nigeria</span>
+                <span>No.8 RSU Maingate by Ikwere Road,<br />Port Harcourt, Nigeria</span>
               </li>
               <li className="flex items-center gap-3 text-gray-400">
                 <Phone size={20} className="text-accent flex-shrink-0" />
@@ -46,7 +46,7 @@ export const Footer = () => {
               </li>
               <li className="flex items-center gap-3 text-gray-400">
                 <Mail size={20} className="text-accent flex-shrink-0" />
-                <span>info@prinzoil.com</span>
+                <span>Info@prinz-oil.com.ng</span>
               </li>
             </ul>
           </div>

@@ -12,45 +12,38 @@ import Link from 'next/link';
 const DUMMY_TEAM = [
   {
     id: 1,
-    name: 'Dr. Emeka Okonkwo',
+    name: 'Progress Alpheaus Unyene',
     role: 'Chief Executive Officer',
-    description: 'With over 25 years in the energy sector, Dr. Okonkwo leads Prinz Oil with a vision for sustainable growth.',
+    description: 'Leading Prinz-Oil Limited with a clear vision for growth in petroleum distribution across Nigeria.',
     image_url: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=1974&auto=format&fit=crop'
   },
   {
     id: 2,
-    name: 'Sarah Adebayo',
-    role: 'Chief Operations Officer',
-    description: 'Sarah ensures operational excellence across all our upstream and downstream activities.',
+    name: 'Adenebari Annastecia Suanu-Nna Esq',
+    role: 'Group Chief Executive',
+    description: 'Overseeing group-level strategy and corporate governance for the company.',
     image_url: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1976&auto=format&fit=crop'
   },
   {
     id: 3,
-    name: 'James Wright',
-    role: 'Technical Director',
-    description: 'Leading our engineering innovations and technical compliance standards.',
+    name: 'Gideon Tanpiorun-obari Tee',
+    role: 'Chief Operating Officer',
+    description: 'Ensuring operational excellence and reliable distribution across all service areas.',
     image_url: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=1974&auto=format&fit=crop'
   },
   {
     id: 4,
-    name: 'Chioma Nwosu',
-    role: 'Head of Sustainability',
-    description: 'Dedicated to ensuring our environmental impact is positive and our community relations are strong.',
-    image_url: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=1961&auto=format&fit=crop'
-  },
-  {
-    id: 5,
-    name: 'Michael Ross',
-    role: 'Chief Financial Officer',
-    description: 'Expertise in global finance and energy markets, ensuring financial stability and growth.',
+    name: 'Solomon Awajis Harold',
+    role: 'Logistics/Sales Manager',
+    description: 'Managing logistics operations and sales activities to ensure efficient product delivery.',
     image_url: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=2070&auto=format&fit=crop'
   },
   {
-    id: 6,
-    name: 'Zainab Ali',
-    role: 'Legal Counsel',
-    description: 'Overseeing corporate governance, compliance, and regulatory affairs.',
-    image_url: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?q=80&w=1974&auto=format&fit=crop'
+    id: 5,
+    name: 'Believe Manuchimson Worgu',
+    role: 'Group Tech-Head',
+    description: 'Driving technology initiatives and digital infrastructure for the company.',
+    image_url: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=1961&auto=format&fit=crop'
   }
 ];
 
@@ -99,7 +92,7 @@ export default function TeamPage() {
             Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-accent-light">Team</span>
           </h1>
           <p className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto font-normal leading-relaxed">
-            Meet the visionaries and experts driving Prinz Oil towards a sustainable and prosperous energy future.
+            Meet the team driving Prinz-Oil towards becoming a leading petroleum distributor in Nigeria.
           </p>
         </div>
       </section>
@@ -110,16 +103,16 @@ export default function TeamPage() {
           <div className="flex flex-col md:flex-row justify-between items-center mb-24 gap-8">
             <div className="max-w-2xl text-center md:text-left">
               <h2 className="text-4xl md:text-6xl font-black text-primary mb-6 tracking-tighter">Executives</h2>
-              <p className="text-gray-500 text-xl font-normal">A diverse team of industry veterans committed to energy excellence.</p>
+              <p className="text-gray-500 text-xl font-normal">The team behind Prinz-Oil's reliable petroleum distribution across Nigeria.</p>
             </div>
             <div className="hidden md:flex gap-12 text-center">
                <div>
-                  <div className="text-4xl font-black text-primary mb-1">20+</div>
-                  <div className="text-accent font-black text-xs uppercase tracking-widest">Leaders</div>
+                  <div className="text-4xl font-black text-primary mb-1">5</div>
+                  <div className="text-accent font-black text-xs uppercase tracking-widest">Key Staff</div>
                </div>
                <div>
-                  <div className="text-4xl font-black text-primary mb-1">150+</div>
-                  <div className="text-accent font-black text-xs uppercase tracking-widest">Years Combined</div>
+                  <div className="text-4xl font-black text-primary mb-1">2</div>
+                  <div className="text-accent font-black text-xs uppercase tracking-widest">Regions Covered</div>
                </div>
             </div>
           </div>

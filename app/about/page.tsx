@@ -19,7 +19,7 @@ export default function AboutPage() {
             About <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-accent-light">Prinz Oil</span>
           </h1>
           <p className="text-xl md:text-2xl text-white/70 max-w-2xl mx-auto font-normal leading-relaxed">
-            Pioneering sustainable energy solutions for Nigeria and the world, driven by excellence and innovation.
+            A Nigerian company registered with the Corporate Affairs Commission, specializing in petroleum products distribution.
           </p>
         </div>
       </section>
@@ -37,7 +37,7 @@ export default function AboutPage() {
                   </div>
                   <h2 className="text-3xl font-black text-white mb-6">Our Mission</h2>
                   <p className="text-white/70 text-lg leading-relaxed font-medium">
-                    To explore, produce, and distribute energy resources efficiently and responsibly, driving economic growth while minimizing our environmental footprint.
+                    To distribute and market refined petroleum products (AGO, PMS, and HHK) efficiently and reliably, ensuring compliance with NMDPRA standards while serving fuel stations, industries, and oil & gas companies across Nigeria.
                   </p>
                 </div>
                 
@@ -47,7 +47,7 @@ export default function AboutPage() {
                   </div>
                   <h2 className="text-3xl font-black text-white mb-6">Our Vision</h2>
                   <p className="text-white/80 text-lg leading-relaxed font-medium">
-                    To be the leading indigenous energy company in Africa, recognized for global best practices, innovation, and community impact.
+                    To be the leading distributor and marketer of refined petroleum products in the South-South and South-East regions of Nigeria, recognized for reliability, professionalism, and regulatory compliance.
                   </p>
                 </div>
               </div>
@@ -75,40 +75,34 @@ export default function AboutPage() {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
               {[
                 { 
+                  title: 'Teamwork', 
+                  icon: Users, 
+                  color: 'text-blue-500',
+                  desc: 'We work together as a unified team to achieve our shared goals and deliver excellence.'
+                },
+                { 
+                  title: 'Respect', 
+                  icon: Heart, 
+                  color: 'text-green-500',
+                  desc: 'We treat our clients, partners, and colleagues with dignity and mutual respect.'
+                },
+                { 
                   title: 'Integrity', 
                   icon: ShieldCheck, 
-                  color: 'text-blue-500',
+                  color: 'text-yellow-500',
                   desc: 'We uphold the highest standards of honesty and transparency in all our dealings.'
                 },
                 { 
-                  title: 'Safety', 
-                  icon: Award, 
-                  color: 'text-green-500',
-                  desc: 'Our zero-incident commitment ensures the well-being of our people and communities.'
-                },
-                { 
-                  title: 'Innovation', 
-                  icon: Zap, 
-                  color: 'text-yellow-500',
-                  desc: 'Leveraging cutting-edge technology to solve the energy challenges of tomorrow.'
-                },
-                { 
-                  title: 'Sustainability', 
-                  icon: Heart, 
-                  color: 'text-red-500',
-                  desc: 'Balancing energy production with environmental stewardship for future generations.'
-                },
-                { 
-                  title: 'Excellence', 
+                  title: 'Professionalism', 
                   icon: Award, 
                   color: 'text-purple-500',
-                  desc: 'Delivering world-class quality and operational efficiency in everything we do.'
+                  desc: 'We conduct our business with competence, accountability, and adherence to best practices.'
                 },
                 { 
-                  title: 'Community', 
-                  icon: Users, 
-                  color: 'text-orange-500',
-                  desc: 'Empowering the regions where we operate through meaningful engagement.'
+                  title: 'Passion', 
+                  icon: Zap, 
+                  color: 'text-red-500',
+                  desc: 'We are driven by a genuine passion for delivering quality petroleum products and outstanding service.'
                 },
               ].map((val, idx) => (
                 <div key={idx} className="flex flex-col gap-6 bg-primary p-10 rounded-[2.5rem] border border-white/5 hover:border-accent/20 hover:shadow-[0_40px_80px_-15px_rgba(0,0,0,0.3)] transition-all duration-500 group">
@@ -142,11 +136,11 @@ export default function AboutPage() {
             
             <div className="space-y-24">
               {[
-                { year: '2005', title: 'Inception', icon: ShieldCheck, desc: 'Prinz Oil was founded with a vision to revitalize local exploration.' },
-                { year: '2010', title: 'First Major Discovery', icon: Award, desc: 'Successfully struck oil in the Niger Delta region, marking our entry into upstream operations.' },
-                { year: '2015', title: 'Expansion', icon: Globe, desc: 'Diversified into downstream distribution, establishing a network of depots and stations.' },
-                { year: '2020', title: 'Sustainable Shift', icon: Zap, desc: 'Launched our Green Energy Initiative to integrate renewables and reduce carbon intensity.' },
-                { year: 'Present', title: 'Global Reach', icon: Users, desc: 'Continuing to expand our footprint and partnerships across the globe.' },
+                { year: 'Founded', title: 'Company Established', icon: ShieldCheck, desc: 'Prinz-Oil Limited was incorporated and registered with the Corporate Affairs Commission in Nigeria.' },
+                { year: 'Growth', title: 'Operations Launched', icon: Award, desc: 'Began distribution of AGO, PMS, and HHK products from our base in Port Harcourt.' },
+                { year: 'Expansion', title: 'Regional Coverage', icon: Globe, desc: 'Expanded our distribution network across all major cities in the South-South and South-East regions.' },
+                { year: 'Fleet', title: 'Logistics Build-Up', icon: Zap, desc: 'Built a fleet of various-capacity trucks fully equipped with safety equipment and materials.' },
+                { year: 'Present', title: 'NMDPRA Compliance', icon: Users, desc: 'Continuing to grow as a trusted, compliant distributor serving fuel stations, industries, and oil & gas companies.' },
               ].map((milestone, idx) => (
                 <div key={idx} className={`flex flex-col lg:flex-row items-center gap-12 group ${idx % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'}`}>
                   {/* Bubble side */}

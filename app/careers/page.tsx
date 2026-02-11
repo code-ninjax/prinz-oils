@@ -5,10 +5,10 @@ import Link from 'next/link';
 
 export default function CareersPage() {
   const openings = [
-    { title: 'Petroleum Engineer', dept: 'Operations', type: 'Full-time', location: 'Port Harcourt' },
-    { title: 'Sustainability Analyst', dept: 'Corporate', type: 'Full-time', location: 'Lagos' },
-    { title: 'Supply Chain Manager', dept: 'Logistics', type: 'Full-time', location: 'Lagos' },
-    { title: 'Data Scientist', dept: 'Innovation Lab', type: 'Full-time', location: 'Remote / Lagos' },
+    { title: 'Truck Driver', dept: 'Logistics', type: 'Full-time', location: 'Port Harcourt' },
+    { title: 'Depot Attendant', dept: 'Operations', type: 'Full-time', location: 'Port Harcourt' },
+    { title: 'Sales Representative', dept: 'Sales', type: 'Full-time', location: 'Port Harcourt' },
+    { title: 'Accounts Officer', dept: 'Finance', type: 'Full-time', location: 'Port Harcourt' },
   ];
 
   return (
@@ -33,7 +33,7 @@ export default function CareersPage() {
             Careers at <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-accent-light">Prinz Oil</span>
           </h1>
           <p className="text-xl md:text-2xl text-white/90 max-w-2xl font-normal leading-relaxed">
-            Join a collective of innovators, engineers, and visionaries shaping the next chapter of energy in Africa.
+            Join a growing petroleum distribution company serving the South-South and South-East regions of Nigeria.
           </p>
         </div>
       </section>

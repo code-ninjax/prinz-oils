@@ -38,8 +38,8 @@ export default function Home() {
               </div>
               {/* Floating stats card */}
               <div className="absolute -bottom-8 -right-8 bg-white p-8 rounded-2xl shadow-2xl border border-gray-50 hidden md:block">
-                <div className="text-4xl font-black text-primary mb-1">20+</div>
-                <div className="text-gray-500 text-sm uppercase tracking-widest font-bold">Years of Innovation</div>
+                <div className="text-4xl font-black text-primary mb-1">CAC</div>
+                <div className="text-gray-500 text-sm uppercase tracking-widest font-bold">Registered Company</div>
               </div>
             </div>
 
@@ -48,9 +48,9 @@ export default function Home() {
                 <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
                 Who We Are
               </div>
-              <h3 className="text-3xl md:text-4xl lg:text-5xl font-black text-primary mb-6 md:mb-8 leading-[1.1]">Redefining Excellence in the African <span className="text-accent underline decoration-primary/10 underline-offset-8">Energy Sector</span>.</h3>
+              <h3 className="text-3xl md:text-4xl lg:text-5xl font-black text-primary mb-6 md:mb-8 leading-[1.1]">Major Distributor of Refined <span className="text-accent underline decoration-primary/10 underline-offset-8">Petroleum Products</span>.</h3>
               <p className="text-gray-600 text-base md:text-xl mb-8 leading-relaxed font-normal">
-                Established with a vision to transform the oil and gas landscape, Prinz Oil combines cutting-edge technology with deep local expertise. We are committed to operational efficiency, environmental stewardship, and delivering value to our stakeholders.
+                Prinz-Oil Limited is a Nigerian company registered with the Corporate Affairs Commission, specializing in the distribution and marketing of AGO, PMS, and HHK. Based in Port Harcourt, we serve fuel stations, manufacturing industries, and oil & gas companies across the South-South and South-East regions.
               </p>
               <Link href="/about" className="inline-flex items-center gap-4 text-primary font-black hover:text-accent transition-all duration-300 group">
                 <span className="text-base md:text-lg">Read our full story</span>
@@ -68,9 +68,9 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row justify-between items-center md:items-end mb-12 md:mb-20 gap-8 text-center md:text-left">
             <div className="max-w-2xl">
-              <div className="text-accent font-black tracking-[0.3em] uppercase text-xs mb-4">Operations</div>
-              <h2 className="text-3xl md:text-5xl font-black text-primary mb-6">Integrated Energy Solutions</h2>
-              <p className="text-gray-600 text-base md:text-lg">From upstream exploration to downstream distribution, our operations span the entire energy value chain.</p>
+              <div className="text-accent font-black tracking-[0.3em] uppercase text-xs mb-4">What We Do</div>
+              <h2 className="text-3xl md:text-5xl font-black text-primary mb-6">Our Distribution Services</h2>
+              <p className="text-gray-600 text-base md:text-lg">We deliver refined petroleum products reliably to fuel stations, industries, and oil & gas companies across Nigeria.</p>
             </div>
             <Link href="/services" className="w-full md:w-auto">
               <Button variant="outline" className="w-full md:w-auto border-primary/10 hover:border-accent hover:bg-accent hover:text-white transition-all duration-300 px-8 py-6 text-base font-bold text-primary">
@@ -82,24 +82,24 @@ export default function Home() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
             {[
               { 
-                title: 'Oil Exploration', 
+                title: 'Retail Fuel Supply', 
                 icon: Droplets, 
-                desc: 'Advanced seismic data analysis and sustainable drilling operations.'
+                desc: 'Direct supply to fuel stations and station owners for retail sales across Nigeria.'
               },
               { 
-                title: 'Distribution', 
-                icon: Globe, 
-                desc: 'Efficient logistics network ensuring reliable energy delivery across the region.'
-              },
-              { 
-                title: 'Refining', 
+                title: 'Industrial Supply', 
                 icon: Factory, 
-                desc: 'State-of-the-art refining capabilities producing high-quality petroleum products.'
+                desc: 'Supply to manufacturing industries with valid NMDPRA storage licenses.'
               },
               { 
-                title: 'Partnerships', 
+                title: 'Oil & Gas Supply', 
+                icon: Globe, 
+                desc: 'Reliable supply of refined petroleum products to oil and gas companies.'
+              },
+              { 
+                title: 'Fleet & Logistics', 
                 icon: Handshake, 
-                desc: 'Strategic alliances with global leaders to drive innovation and growth.'
+                desc: 'Various capacity trucks fully equipped with safety equipment and materials.'
               },
             ].map((item, idx) => (
               <div key={idx} className="relative group bg-primary p-8 md:p-10 rounded-[2.5rem] overflow-hidden shadow-2xl transition-all duration-500 border border-white/5 hover:border-accent/20 hover:shadow-[0_40px_80px_-15px_rgba(0,0,0,0.3)]">
@@ -133,11 +133,11 @@ export default function Home() {
             
             <div className="space-y-16 md:space-y-24 relative">
               {[
-                { year: '2005', title: 'Inception', icon: ShieldCheck, desc: 'Prinz Oil was founded with a vision to revitalize local exploration.' },
-                { year: '2010', title: 'First Major Discovery', icon: Droplets, desc: 'Successfully struck oil in the Niger Delta region, marking our entry into upstream operations.' },
-                { year: '2015', title: 'Expansion', icon: Globe, desc: 'Diversified into downstream distribution, establishing a network of depots and stations.' },
-                { year: '2020', title: 'Sustainable Shift', icon: BatteryCharging, desc: 'Launched our Green Energy Initiative to integrate renewables and reduce carbon intensity.' },
-                { year: 'Present', title: 'Global Reach', icon: Ship, desc: 'Continuing to expand our footprint and partnerships across the globe.' },
+                { year: 'Founded', title: 'Company Established', icon: ShieldCheck, desc: 'Prinz-Oil Limited was incorporated and registered with the Corporate Affairs Commission in Nigeria.' },
+                { year: 'Growth', title: 'Operations Launched', icon: Droplets, desc: 'Began distribution of AGO, PMS, and HHK products from our base in Port Harcourt.' },
+                { year: 'Expansion', title: 'Regional Coverage', icon: Globe, desc: 'Expanded our distribution network across all major cities in the South-South and South-East regions.' },
+                { year: 'Fleet', title: 'Logistics Build-Up', icon: Ship, desc: 'Built a fleet of various-capacity trucks fully equipped with safety equipment and materials.' },
+                { year: 'Present', title: 'NMDPRA Compliance Leader', icon: BatteryCharging, desc: 'Continuing to grow as a trusted, compliant distributor serving fuel stations, industries, and oil & gas companies.' },
               ].map((milestone, idx) => (
                 <div key={idx} className={`flex flex-col lg:flex-row items-center gap-8 md:gap-12 group ${idx % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'}`}>
                   {/* Year & Icon Bubble */}
@@ -198,22 +198,22 @@ export default function Home() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
             <TeamCard member={{
-              name: 'Dr. Emeka Okonkwo',
+              name: 'Progress Alpheaus Unyene',
               role: 'Chief Executive Officer',
-              description: 'With over 25 years in the energy sector, Dr. Okonkwo leads Prinz Oil with a vision for sustainable growth.',
+              description: 'Leading Prinz-Oil Limited with a clear vision for growth in petroleum distribution across Nigeria.',
               image_url: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=1974&auto=format&fit=crop'
             }} />
              <TeamCard member={{
-              name: 'Sarah Adebayo',
-              role: 'Chief Operations Officer',
-              description: 'Sarah ensures operational excellence across all our upstream and downstream activities.',
+              name: 'Adenebari Annastecia Suanu-Nna Esq',
+              role: 'Group Chief Executive',
+              description: 'Overseeing group-level strategy and corporate governance for the company.',
               image_url: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1976&auto=format&fit=crop'
             }} />
              <div className="sm:col-span-2 lg:col-span-1">
                <TeamCard member={{
-                name: 'James Wright',
-                role: 'Technical Director',
-                description: 'Leading our engineering innovations and technical compliance standards.',
+                name: 'Gideon Tanpiorun-obari Tee',
+                role: 'Chief Operating Officer',
+                description: 'Ensuring operational excellence and reliable distribution across all service areas.',
                 image_url: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=1974&auto=format&fit=crop'
               }} />
              </div>
@@ -235,9 +235,9 @@ export default function Home() {
         <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-white/5 rounded-full blur-[100px] -translate-x-1/2 translate-y-1/2" />
         
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          <h2 className="text-4xl md:text-7xl font-black mb-10 leading-[1.1]">Join Us in Powering the <span className="text-accent underline decoration-white/20 underline-offset-8">Future</span>.</h2>
+          <h2 className="text-4xl md:text-7xl font-black mb-10 leading-[1.1]">Partner With Us for Reliable <span className="text-accent underline decoration-white/20 underline-offset-8">Petroleum Supply</span>.</h2>
           <p className="text-xl text-gray-400 mb-12 max-w-3xl mx-auto font-normal leading-relaxed">
-            We are always looking for exceptional talent and strategic partners to join our mission of energy excellence.
+            Whether you need fuel for your station, products for your industry, or a trusted supply partner — Prinz-Oil is here to deliver.
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
             <Link href="/contact">

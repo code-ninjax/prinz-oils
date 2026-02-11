@@ -17,46 +17,46 @@ import { Button } from '@/components/Button';
 export default function ServicesPage() {
   const services = [
     {
-      title: 'Upstream Exploration',
-      desc: 'We leverage advanced geological surveys and seismic data to identify and extract hydrocarbon reserves efficiently.',
+      title: 'Retail Fuel Supply',
+      desc: 'We supply directly to our fuel stations and station owners for retail sales, ensuring consistent availability of quality products.',
       icon: Droplets,
       bg: 'https://images.unsplash.com/photo-1544006659-f0b21f04cb1d?q=80&w=2070&auto=format&fit=crop',
       color: 'bg-blue-600'
     },
     {
-      title: 'Refining & Processing',
-      desc: 'Our state-of-the-art refining facilities process crude oil into high-quality petroleum products meeting international standards.',
+      title: 'Industrial Supply',
+      desc: 'We supply to manufacturing industries with valid NMDPRA storage licenses, supporting their operations with reliable petroleum products.',
       icon: Factory,
       bg: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=2070&auto=format&fit=crop',
       color: 'bg-accent'
     },
     {
-      title: 'Downstream Distribution',
-      desc: 'A robust logistics network ensures the reliable supply of energy products to industrial and retail consumers.',
+      title: 'Oil & Gas Supply',
+      desc: 'We supply refined petroleum products to oil and gas companies, meeting their operational requirements with consistency.',
       icon: Globe,
       bg: 'https://images.unsplash.com/photo-1586528116311-ad86d7c71107?q=80&w=2070&auto=format&fit=crop',
       color: 'bg-green-600'
     },
     {
-      title: 'Strategic Partnerships',
-      desc: 'Collaborating with international energy majors to enhance our operational capabilities and foster knowledge transfer.',
-      icon: Handshake,
+      title: 'Fleet & Logistics',
+      desc: 'Our various capacity trucks are fully equipped with safety equipment and materials for secure and timely product delivery.',
+      icon: Ship,
       bg: 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=2048&auto=format&fit=crop',
       color: 'bg-purple-600'
     },
     {
-      title: 'Renewable Integration',
-      desc: 'Investing in the future with solar and gas-to-power technologies to diversify our portfolio and reduce carbon footprint.',
-      icon: Zap,
-      bg: 'https://images.unsplash.com/photo-1509391366360-fe5bb58583bb?q=80&w=2070&auto=format&fit=crop',
-      color: 'bg-yellow-500'
-    },
-    {
-      title: 'HSE Consultancy',
-      desc: 'Expertise in Health, Safety, and Environment to ensure compliance and best practices across the industry.',
+      title: 'NMDPRA Compliance',
+      desc: 'We ensure all our clients have valid storage licenses and are in full compliance with NMDPRA regulations before delivery.',
       icon: ShieldCheck,
       bg: 'https://images.unsplash.com/photo-1581094288338-2314dddb7ecc?q=80&w=2070&auto=format&fit=crop',
       color: 'bg-red-600'
+    },
+    {
+      title: 'Regional Distribution',
+      desc: 'Our coverage includes all major cities in the South-South and South-East regions of Nigeria, reaching key markets reliably.',
+      icon: Target,
+      bg: 'https://images.unsplash.com/photo-1509391366360-fe5bb58583bb?q=80&w=2070&auto=format&fit=crop',
+      color: 'bg-yellow-500'
     },
   ];
 
@@ -75,7 +75,7 @@ export default function ServicesPage() {
             Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-accent-light">Solutions</span>
           </h1>
           <p className="text-xl md:text-2xl text-white/70 max-w-2xl mx-auto font-normal leading-relaxed">
-            Delivering excellence across the entire energy value chain through innovation, safety, and reliability.
+            Distributing AGO, PMS, and HHK reliably to fuel stations, industries, and oil & gas companies across Nigeria.
           </p>
         </div>
       </section>
@@ -114,9 +114,9 @@ export default function ServicesPage() {
            <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
               <div>
                 <div className="text-primary font-black tracking-[0.3em] uppercase text-xs mb-4">Excellence</div>
-                <h2 className="text-4xl md:text-6xl font-black text-primary mb-8 leading-[1.1]">Unwavering Commitment to <span className="text-accent underline decoration-primary/10 underline-offset-8">Safety</span>.</h2>
+                <h2 className="text-4xl md:text-6xl font-black text-primary mb-8 leading-[1.1]">Unwavering Commitment to <span className="text-accent underline decoration-primary/10 underline-offset-8">Compliance</span>.</h2>
                 <p className="text-gray-600 text-xl mb-12 leading-relaxed">
-                  At Prinz Oil, safety is not just a policy; it is our core value. We maintain a zero-incident culture across all our operations worldwide.
+                  At Prinz-Oil, we ensure that our clients have valid storage licenses for the specific products being delivered to them and are in full compliance with NMDPRA regulations.
                 </p>
                 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 mb-12">
