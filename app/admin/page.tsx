@@ -30,12 +30,11 @@ export default function AdminDashboard() {
     fetchTeam();
   }, []);
 
-  const checkUser = async () => {
-    const { data: { session } } = await supabase.auth.getSession();
-    if (!session) {
-      // For demo purposes, we might allow access or redirect. 
-      // In production, uncomment the next line:
-      // router.push('/admin/login');
+  const checkUser = () => {
+    const isAuth = localStorage.getItem('prinz-admin-auth');
+    if (!isAuth) {
+      router.push('/admin/login');
+      return;
     }
     setLoading(false);
   };
@@ -45,8 +44,8 @@ export default function AdminDashboard() {
     if (data) setTeam(data);
   };
 
-  const handleLogout = async () => {
-    await supabase.auth.signOut();
+  const handleLogout = () => {
+    localStorage.removeItem('prinz-admin-auth');
     router.push('/admin/login');
   };
 
