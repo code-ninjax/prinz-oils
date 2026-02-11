@@ -1,6 +1,5 @@
 import Image from 'next/image';
-import { Linkedin, Twitter, ArrowRight } from 'lucide-react';
-import Link from 'next/link';
+import { ArrowRight } from 'lucide-react';
 
 interface TeamMember {
   name: string;
@@ -9,9 +8,12 @@ interface TeamMember {
   description?: string;
 }
 
-export const TeamCard = ({ member }: { member: TeamMember }) => {
+export const TeamCard = ({ member, onClick }: { member: TeamMember; onClick?: () => void }) => {
   return (
-    <div className="group relative bg-white rounded-[3rem] overflow-hidden shadow-sm hover:shadow-[0_32px_64px_-16px_rgba(0,0,0,0.12)] transition-all duration-700 border border-gray-50 flex flex-col h-[600px]">
+    <div 
+      className="group relative bg-white rounded-[3rem] overflow-hidden shadow-sm hover:shadow-[0_32px_64px_-16px_rgba(0,0,0,0.12)] transition-all duration-700 border border-gray-50 flex flex-col h-[600px] cursor-pointer"
+      onClick={onClick}
+    >
       {/* Image Container */}
       <div className="relative h-2/3 w-full overflow-hidden bg-gray-50">
         {member.image_url ? (
@@ -27,16 +29,6 @@ export const TeamCard = ({ member }: { member: TeamMember }) => {
           </div>
         )}
         <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
-        
-        {/* Social Icons Overlay */}
-        <div className="absolute top-8 right-8 flex flex-col gap-4 translate-x-20 group-hover:translate-x-0 transition-transform duration-500 delay-100">
-          <button className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center text-primary hover:bg-accent hover:text-white transition-all shadow-xl">
-             <Linkedin size={20} />
-          </button>
-          <button className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center text-primary hover:bg-accent hover:text-white transition-all shadow-xl">
-             <Twitter size={20} />
-          </button>
-        </div>
       </div>
 
       {/* Content */}
@@ -50,12 +42,11 @@ export const TeamCard = ({ member }: { member: TeamMember }) => {
           {member.description || "Leading the energy frontier with expertise and vision."}
         </p>
         
-        <Link href={`#`} className="inline-flex items-center gap-3 text-primary font-black hover:text-accent transition-colors group/link">
-           <span className="text-sm uppercase tracking-widest leading-none">Full Profile</span>
-           <ArrowRight size={18} className="group-hover/link:translate-x-1 transition-transform" />
-        </Link>
+        <span className="inline-flex items-center gap-3 text-primary font-black group-hover:text-accent transition-colors">
+           <span className="text-sm uppercase tracking-widest leading-none">View Profile</span>
+           <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+        </span>
       </div>
     </div>
   );
 };
-

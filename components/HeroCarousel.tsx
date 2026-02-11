@@ -21,9 +21,9 @@ const slides = [
     description: 'We supply directly to fuel stations, manufacturing industries, and oil & gas companies with full NMDPRA compliance.',
     bgImage: '/images/industrial-port.jpg',
     ctaPrimary: 'Our Services',
-    ctaSecondary: 'Join Our Team',
+    ctaSecondary: 'Contact Us',
     linkPrimary: '/services',
-    linkSecondary: '/careers',
+    linkSecondary: '/contact',
   },
   {
     title: 'Covering South-South and South-East Nigeria',

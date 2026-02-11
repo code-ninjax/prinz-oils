@@ -2,11 +2,8 @@
 
 import { useEffect, useState } from 'react';
 import { TeamCard } from '@/components/TeamCard';
+import { TeamModal } from '@/components/TeamModal';
 import { supabase } from '@/lib/supabaseClient';
-import Image from 'next/image';
-import { Users, Globe, Award, ShieldCheck, ArrowRight } from 'lucide-react';
-import { Button } from '@/components/Button';
-import Link from 'next/link';
 
 // Fallback data
 const DUMMY_TEAM = [
@@ -50,6 +47,7 @@ const DUMMY_TEAM = [
 export default function TeamPage() {
   const [team, setTeam] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
+  const [selectedMember, setSelectedMember] = useState<any | null>(null);
 
   useEffect(() => {
     async function fetchTeam() {
@@ -104,7 +102,7 @@ export default function TeamPage() {
           <div className="flex flex-col md:flex-row justify-between items-center mb-24 gap-8">
             <div className="max-w-2xl text-center md:text-left">
               <h2 className="text-4xl md:text-6xl font-black text-primary mb-6 tracking-tighter">Executives</h2>
-              <p className="text-gray-500 text-xl font-normal">The team behind Prinz-Oil's reliable petroleum distribution across Nigeria.</p>
+              <p className="text-gray-500 text-xl font-normal">The team behind Prinz-Oil&apos;s reliable petroleum distribution across Nigeria.</p>
             </div>
             <div className="hidden md:flex gap-12 text-center">
                <div>
@@ -120,59 +118,31 @@ export default function TeamPage() {
 
           {loading ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16">
-              {[1, 2, 3, 4, 5, 6].map((i) => (
+              {[1, 2, 3, 4, 5].map((i) => (
                 <div key={i} className="h-[500px] bg-gray-50 rounded-[2.5rem] animate-pulse"></div>
               ))}
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16">
               {team.map((member) => (
-                <TeamCard key={member.id} member={member} />
+                <TeamCard 
+                  key={member.id} 
+                  member={member} 
+                  onClick={() => setSelectedMember(member)}
+                />
               ))}
             </div>
           )}
         </div>
       </section>
 
-      {/* Join the Team CTA */}
-      <section className="py-32 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-           <div className="bg-primary rounded-[4rem] p-12 md:p-24 relative overflow-hidden shadow-2xl">
-              <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-accent/10 rounded-full blur-[120px] translate-x-1/2 -translate-y-1/2" />
-              
-              <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-                 <div>
-                    <h2 className="text-4xl md:text-6xl font-black text-white mb-10 leading-[1.1]">Join a <span className="text-accent">Global</span> Team of Innovators.</h2>
-                    <p className="text-white/70 text-xl mb-12 max-w-xl font-normal leading-relaxed">
-                      We are always looking for passionate people to help us redefine the energy industry. Explore our career opportunities.
-                    </p>
-                    <Link href="/careers">
-                       <Button size="lg" className="bg-accent hover:bg-accent-dark text-white border-none px-12 py-8 text-xl font-black shadow-2xl shadow-accent/20">
-                         View Careers
-                       </Button>
-                    </Link>
-                 </div>
-                 
-                 <div className="grid grid-cols-2 gap-8">
-                    {[
-                      { icon: Globe, label: 'Global Impact' },
-                      { icon: Users, label: 'Diverse Culture' },
-                      { icon: Award, label: 'Career Growth' },
-                      { icon: ShieldCheck, label: 'Safety First' },
-                    ].map((item, idx) => (
-                      <div key={idx} className="bg-white/5 backdrop-blur-md p-10 rounded-[2.5rem] border border-white/10 flex flex-col items-center text-center group hover:bg-white/10 transition-all duration-300">
-                         <div className="w-16 h-16 bg-accent rounded-2xl flex items-center justify-center text-white mb-6 group-hover:scale-110 transition-transform">
-                            <item.icon size={32} />
-                         </div>
-                         <span className="text-white font-black text-lg">{item.label}</span>
-                      </div>
-                    ))}
-                 </div>
-              </div>
-           </div>
-        </div>
-      </section>
+      {/* Team Member Modal */}
+      {selectedMember && (
+        <TeamModal 
+          member={selectedMember} 
+          onClose={() => setSelectedMember(null)} 
+        />
+      )}
     </main>
   );
 }
-

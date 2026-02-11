@@ -245,11 +245,7 @@ export default function Home() {
                  Partner With Us
                </Button>
             </Link>
-            <Link href="/careers">
-               <Button size="lg" variant="outline" className="text-white border-white/20 hover:bg-white/10 px-12 py-8 text-xl font-black backdrop-blur-md">
-                 Careers
-               </Button>
-            </Link>
+
           </div>
         </div>
       </section>
