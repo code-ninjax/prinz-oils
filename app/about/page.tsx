@@ -56,7 +56,7 @@ export default function AboutPage() {
 
             <div className="relative aspect-square w-full rounded-[3rem] overflow-hidden shadow-2xl group border-[12px] border-white">
               <Image 
-                src="https://images.unsplash.com/photo-1544006659-f0b21f04cb1d?q=80&w=2070&auto=format&fit=crop"
+                src="/images/industrial-port.jpg"
                 alt="Energy Infrastructure"
                 fill
                 className="object-cover group-hover:scale-110 transition-transform duration-[2000ms]"

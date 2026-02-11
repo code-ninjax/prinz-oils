@@ -10,8 +10,7 @@ const slides = [
   {
     title: 'Your Trusted Petroleum Distribution Partner',
     description: 'Prinz-Oil Limited is a major distributor and marketer of refined petroleum products — AGO, PMS, and HHK — across Nigeria.',
-    bgImage: 'https://images.unsplash.com/photo-1513828583688-c52646db42da?q=80&w=2070&auto=format&fit=crop',
-    fgImage: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?q=80&w=2070&auto=format&fit=crop',
+    bgImage: '/images/storage-tanks.jpg',
     ctaPrimary: 'Discover Prinz-Oil',
     ctaSecondary: 'Our Services',
     linkPrimary: '/about',
@@ -20,8 +19,7 @@ const slides = [
   {
     title: 'Reliable Petroleum Supply Across Nigeria',
     description: 'We supply directly to fuel stations, manufacturing industries, and oil & gas companies with full NMDPRA compliance.',
-    bgImage: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=2163&auto=format&fit=crop',
-    fgImage: 'https://images.unsplash.com/photo-1532187863486-abf2ad81b699?q=80&w=2070&auto=format&fit=crop',
+    bgImage: '/images/industrial-port.jpg',
     ctaPrimary: 'Our Services',
     ctaSecondary: 'Join Our Team',
     linkPrimary: '/services',
@@ -30,8 +28,7 @@ const slides = [
   {
     title: 'Covering South-South and South-East Nigeria',
     description: 'Our fleet of fully equipped trucks ensures reliable delivery of refined petroleum products to all major cities in our coverage areas.',
-    bgImage: 'https://images.unsplash.com/photo-1586528116311-ad86d7c71107?q=80&w=2070&auto=format&fit=crop',
-    fgImage: 'https://images.unsplash.com/photo-1620714223084-8fcacc6dfd8d?q=80&w=2071&auto=format&fit=crop',
+    bgImage: '/images/refinery-night.jpg',
     ctaPrimary: 'Meet Our Team',
     ctaSecondary: 'Contact Us',
     linkPrimary: '/team',
@@ -67,22 +64,21 @@ export const HeroCarousel = () => {
             key={index}
             className="relative h-full w-full flex-shrink-0 overflow-hidden"
           >
-            {/* Background Image with Lighter Overlay */}
+            {/* Background Image */}
             <div
               className={`absolute inset-0 bg-cover bg-center transition-transform duration-10000 ${
                 index === current ? 'scale-110' : 'scale-100'
               }`}
               style={{ backgroundImage: `url('${slide.bgImage}')` }}
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-primary/80 via-primary/40 to-transparent z-10" />
+              <div className="absolute inset-0 bg-gradient-to-r from-primary/85 via-primary/50 to-primary/30 z-10" />
             </div>
 
-            {/* Content Container - Split Layout */}
-            <div className="relative z-20 h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-              {/* Text Side */}
+            {/* Content - Full Width */}
+            <div className="relative z-20 h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center">
               <div className={`transition-all duration-1000 delay-300 transform ${
                 index === current ? 'translate-x-0 opacity-100' : '-translate-x-12 opacity-0'
-              } text-center lg:text-left pt-20 lg:pt-0`}>
+              } max-w-3xl`}>
                 <h1 className="text-3xl sm:text-5xl md:text-7xl font-extrabold text-white mb-6 leading-tight tracking-tight">
                   {slide.title.split(' ').map((word, i) => (
                     <span key={i}>
@@ -96,10 +92,10 @@ export const HeroCarousel = () => {
                     </span>
                   ))}
                 </h1>
-                <p className="text-base sm:text-lg md:text-xl text-gray-200 mb-8 lg:mb-10 font-normal leading-relaxed max-w-xl mx-auto lg:mx-0">
+                <p className="text-base sm:text-lg md:text-xl text-gray-200 mb-8 lg:mb-10 font-normal leading-relaxed max-w-xl">
                   {slide.description}
                 </p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                <div className="flex flex-col sm:flex-row gap-4">
                   <Link href={slide.linkPrimary}>
                     <Button size="lg" className="bg-accent hover:bg-accent-dark text-white border-none px-6 sm:px-8 py-5 sm:py-6 text-sm sm:text-base shadow-xl shadow-accent/20 w-full sm:w-auto">
                       {slide.ctaPrimary}
@@ -110,27 +106,6 @@ export const HeroCarousel = () => {
                       {slide.ctaSecondary}
                     </Button>
                   </Link>
-                </div>
-              </div>
-
-              {/* Image Side - Foreground Illustrative Image */}
-              <div className={`hidden lg:block transition-all duration-1000 delay-500 transform ${
-                index === current ? 'translate-x-0 opacity-100 rotate-0' : 'translate-x-24 opacity-0 rotate-3'
-              }`}>
-                <div className="relative aspect-square w-full max-w-md mx-auto">
-                  {/* Decorative glass elements */}
-                  <div className="absolute -top-10 -right-10 w-32 h-32 bg-accent/20 rounded-full blur-3xl animate-pulse" />
-                  <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-primary/30 rounded-full blur-3xl" />
-                  
-                  <div className="relative h-full w-full rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
-                    <Image 
-                      src={slide.fgImage}
-                      alt={slide.title}
-                      fill
-                      className="object-cover"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent" />
-                  </div>
                 </div>
               </div>
             </div>

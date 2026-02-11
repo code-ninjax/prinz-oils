@@ -29,7 +29,7 @@ export default function Home() {
               <div className="absolute -inset-4 bg-accent/10 rounded-2xl blur-2xl group-hover:bg-accent/20 transition-all duration-700 opacity-0 group-hover:opacity-100" />
               <div className="relative aspect-[4/5] w-full rounded-3xl overflow-hidden shadow-2xl border border-gray-100">
                 <Image 
-                  src="https://images.unsplash.com/photo-1596706067679-c591e1d3e89a?q=80&w=1974&auto=format&fit=crop"
+                  src="/images/storage-tanks.jpg"
                   alt="Our Vision"
                   fill
                   className="object-cover group-hover:scale-110 transition-transform duration-[2000ms]"
