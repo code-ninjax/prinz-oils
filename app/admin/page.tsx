@@ -228,18 +228,8 @@ export default function AdminDashboard() {
         {activeTab === 'overview' && (
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-              <h3 className="text-gray-500 text-sm font-medium uppercase mb-2">Total Visits</h3>
-              <p className="text-3xl font-bold text-primary">1,245</p>
-              <span className="text-green-500 text-sm font-medium">+12% this week</span>
-            </div>
-            <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-              <h3 className="text-gray-500 text-sm font-medium uppercase mb-2">Page Views</h3>
-              <p className="text-3xl font-bold text-primary">3,890</p>
-              <span className="text-green-500 text-sm font-medium">+5% this week</span>
-            </div>
-            <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-              <h3 className="text-gray-500 text-sm font-medium uppercase mb-2">Active Team</h3>
-              <p className="text-3xl font-bold text-primary">{team.length > 0 ? team.length : 0}</p>
+              <h3 className="text-gray-500 text-sm font-medium uppercase mb-2">Team Members</h3>
+              <p className="text-3xl font-bold text-primary">{team.length}</p>
             </div>
           </div>
         )}
