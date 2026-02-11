@@ -36,3 +36,33 @@ CREATE POLICY "Allow delete"
   ON team_members
   FOR DELETE
   USING (true);
+
+-- ============================================
+-- Storage bucket for team member images
+-- ============================================
+-- Run this in the Supabase SQL Editor as well.
+-- This creates a public bucket called 'team-images'.
+
+INSERT INTO storage.buckets (id, name, public)
+VALUES ('team-images', 'team-images', true)
+ON CONFLICT (id) DO NOTHING;
+
+-- Allow public read access to team images
+CREATE POLICY "Public read team images"
+  ON storage.objects FOR SELECT
+  USING (bucket_id = 'team-images');
+
+-- Allow anyone to upload team images (for admin use)
+CREATE POLICY "Allow upload team images"
+  ON storage.objects FOR INSERT
+  WITH CHECK (bucket_id = 'team-images');
+
+-- Allow anyone to update team images
+CREATE POLICY "Allow update team images"
+  ON storage.objects FOR UPDATE
+  USING (bucket_id = 'team-images');
+
+-- Allow anyone to delete team images
+CREATE POLICY "Allow delete team images"
+  ON storage.objects FOR DELETE
+  USING (bucket_id = 'team-images');

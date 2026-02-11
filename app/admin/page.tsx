@@ -1,10 +1,10 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { supabase } from '@/lib/supabaseClient';
 import { useRouter } from 'next/navigation';
 import { Button } from '@/components/Button';
-import { Plus, Edit2, Trash2, LogOut, Users, BarChart } from 'lucide-react';
+import { Plus, Edit2, Trash2, LogOut, Users, BarChart, Upload, X, Loader2 } from 'lucide-react';
 
 export default function AdminDashboard() {
   const router = useRouter();
@@ -16,6 +16,10 @@ export default function AdminDashboard() {
   const [isEditing, setIsEditing] = useState(false);
   const [currentMember, setCurrentMember] = useState<any>(null);
   const [showForm, setShowForm] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [imageFile, setImageFile] = useState<File | null>(null);
+  const [imagePreview, setImagePreview] = useState<string | null>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
   const [formData, setFormData] = useState({
     name: '',
     role: '',
@@ -57,32 +61,100 @@ export default function AdminDashboard() {
     else alert('Error deleting member');
   };
 
+  // Upload image to Supabase Storage
+  const uploadImage = async (file: File): Promise<string | null> => {
+    const fileExt = file.name.split('.').pop();
+    const fileName = `${Date.now()}-${Math.random().toString(36).substring(2)}.${fileExt}`;
+    const filePath = `team/${fileName}`;
+
+    const { error } = await supabase.storage
+      .from('team-images')
+      .upload(filePath, file, {
+        cacheControl: '3600',
+        upsert: false,
+      });
+
+    if (error) {
+      console.error('Upload error:', error);
+      return null;
+    }
+
+    const { data: urlData } = supabase.storage
+      .from('team-images')
+      .getPublicUrl(filePath);
+
+    return urlData.publicUrl;
+  };
+
+  const handleImageSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    setImageFile(file);
+
+    // Create preview
+    const reader = new FileReader();
+    reader.onloadend = () => {
+      setImagePreview(reader.result as string);
+    };
+    reader.readAsDataURL(file);
+  };
+
+  const removeImage = () => {
+    setImageFile(null);
+    setImagePreview(null);
+    setFormData({ ...formData, image_url: '' });
+    if (fileInputRef.current) fileInputRef.current.value = '';
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
-    if (isEditing && currentMember) {
-      const { error } = await supabase
-        .from('team_members')
-        .update(formData)
-        .eq('id', currentMember.id);
-      
-      if (!error) {
-        fetchTeam();
-        closeForm();
-      } else {
-        alert('Error updating member');
+    setSubmitting(true);
+
+    try {
+      let finalImageUrl = formData.image_url;
+
+      // If there's a new image file, upload it
+      if (imageFile) {
+        const uploadedUrl = await uploadImage(imageFile);
+        if (!uploadedUrl) {
+          alert('Failed to upload image. Please try again.');
+          setSubmitting(false);
+          return;
+        }
+        finalImageUrl = uploadedUrl;
       }
-    } else {
-      const { error } = await supabase
-        .from('team_members')
-        .insert([formData]);
+
+      const dataToSave = { ...formData, image_url: finalImageUrl };
+
+      if (isEditing && currentMember) {
+        const { error } = await supabase
+          .from('team_members')
+          .update(dataToSave)
+          .eq('id', currentMember.id);
         
-      if (!error) {
-        fetchTeam();
-        closeForm();
+        if (!error) {
+          fetchTeam();
+          closeForm();
+        } else {
+          alert('Error updating member: ' + error.message);
+        }
       } else {
-        alert('Error adding member');
+        const { error } = await supabase
+          .from('team_members')
+          .insert([dataToSave]);
+          
+        if (!error) {
+          fetchTeam();
+          closeForm();
+        } else {
+          alert('Error adding member: ' + error.message);
+        }
       }
+    } catch (err: any) {
+      alert('An error occurred: ' + err.message);
+    } finally {
+      setSubmitting(false);
     }
   };
 
@@ -97,6 +169,8 @@ export default function AdminDashboard() {
       linkedin_url: member.linkedin_url || '',
       twitter_url: member.twitter_url || ''
     });
+    setImageFile(null);
+    setImagePreview(member.image_url || null);
     setShowForm(true);
   };
 
@@ -104,7 +178,10 @@ export default function AdminDashboard() {
     setShowForm(false);
     setIsEditing(false);
     setCurrentMember(null);
+    setImageFile(null);
+    setImagePreview(null);
     setFormData({ name: '', role: '', description: '', image_url: '', linkedin_url: '', twitter_url: '' });
+    if (fileInputRef.current) fileInputRef.current.value = '';
   };
 
   if (loading) return <div className="p-10">Loading...</div>;
@@ -162,7 +239,7 @@ export default function AdminDashboard() {
             </div>
             <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
               <h3 className="text-gray-500 text-sm font-medium uppercase mb-2">Active Team</h3>
-              <p className="text-3xl font-bold text-primary">{team.length > 0 ? team.length : 6}</p>
+              <p className="text-3xl font-bold text-primary">{team.length > 0 ? team.length : 0}</p>
             </div>
           </div>
         )}
@@ -189,8 +266,8 @@ export default function AdminDashboard() {
                   {team.length === 0 ? (
                     <tr>
                       <td colSpan={3} className="px-6 py-4 text-center text-gray-500">
-                        No team members found (or DB not connected). <br/>
-                        <span className="text-xs">Add one to start, or check connection.</span>
+                        No team members found. <br/>
+                        <span className="text-xs">Click &quot;Add Member&quot; to get started.</span>
                       </td>
                     </tr>
                   ) : (
@@ -240,10 +317,42 @@ export default function AdminDashboard() {
                   <label className="block text-sm font-medium text-gray-700 mb-1">Description</label>
                   <textarea rows={3} value={formData.description} onChange={e => setFormData({...formData, description: e.target.value})} className="w-full px-4 py-2 border rounded-md" />
                 </div>
+
+                {/* Image Upload */}
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Image URL</label>
-                  <input type="text" value={formData.image_url} onChange={e => setFormData({...formData, image_url: e.target.value})} className="w-full px-4 py-2 border rounded-md" placeholder="https://..." />
+                  <label className="block text-sm font-medium text-gray-700 mb-2">Photo</label>
+                  
+                  {imagePreview ? (
+                    <div className="relative w-full h-48 rounded-lg overflow-hidden border border-gray-200 mb-2">
+                      <img src={imagePreview} alt="Preview" className="w-full h-full object-cover" />
+                      <button 
+                        type="button" 
+                        onClick={removeImage}
+                        className="absolute top-2 right-2 w-8 h-8 bg-white/90 rounded-full flex items-center justify-center text-gray-500 hover:text-red-500 shadow-md transition-colors"
+                      >
+                        <X size={16} />
+                      </button>
+                    </div>
+                  ) : (
+                    <div 
+                      onClick={() => fileInputRef.current?.click()}
+                      className="w-full h-48 border-2 border-dashed border-gray-300 rounded-lg flex flex-col items-center justify-center cursor-pointer hover:border-accent hover:bg-accent/5 transition-all"
+                    >
+                      <Upload size={32} className="text-gray-400 mb-3" />
+                      <p className="text-sm text-gray-500 font-medium">Click to upload photo</p>
+                      <p className="text-xs text-gray-400 mt-1">JPG, PNG, WebP (max 5MB)</p>
+                    </div>
+                  )}
+                  
+                  <input 
+                    ref={fileInputRef}
+                    type="file" 
+                    accept="image/*"
+                    onChange={handleImageSelect}
+                    className="hidden"
+                  />
                 </div>
+
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">LinkedIn URL</label>
                   <input type="text" value={formData.linkedin_url} onChange={e => setFormData({...formData, linkedin_url: e.target.value})} className="w-full px-4 py-2 border rounded-md" />
@@ -253,8 +362,14 @@ export default function AdminDashboard() {
                   <input type="text" value={formData.twitter_url} onChange={e => setFormData({...formData, twitter_url: e.target.value})} className="w-full px-4 py-2 border rounded-md" />
                 </div>
                 <div className="flex gap-4 mt-6">
-                  <Button type="submit" className="flex-1">Save</Button>
-                  <Button type="button" variant="outline" onClick={closeForm} className="flex-1">Cancel</Button>
+                  <Button type="submit" className="flex-1" disabled={submitting}>
+                    {submitting ? (
+                      <span className="flex items-center justify-center gap-2">
+                        <Loader2 size={16} className="animate-spin" /> Saving...
+                      </span>
+                    ) : 'Save'}
+                  </Button>
+                  <Button type="button" variant="outline" onClick={closeForm} className="flex-1" disabled={submitting}>Cancel</Button>
                 </div>
               </form>
             </div>
