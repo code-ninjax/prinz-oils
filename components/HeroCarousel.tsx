@@ -8,7 +8,7 @@ import Image from 'next/image';
 
 const slides = [
   {
-    title: 'Your Trusted Petroleum Distribution Partner',
+    title: 'Reliable Petroleum Supply Across Nigeria',
     description: 'Prinz-Oil Limited is a major distributor and marketer of refined petroleum products — AGO, PMS, and HHK — across Nigeria.',
     bgImage: '/images/storage-tanks.jpg',
     ctaPrimary: 'Discover Prinz-Oil',
@@ -17,8 +17,8 @@ const slides = [
     linkSecondary: '/services',
   },
   {
-    title: 'Reliable Petroleum Supply Across Nigeria',
-    description: 'We supply directly to fuel stations, manufacturing industries, and oil & gas companies with full NMDPRA compliance.',
+    title: 'Sustainable Petroleum Distribution',
+    description: 'Prinz-Oil Limited is a Premier Nigerian company dedicated to sustainable marketing and distribution of Petroleum products -AGO, PMS and HHK --- across Nigeria.',
     bgImage: '/images/industrial-port.jpg',
     ctaPrimary: 'Our Services',
     ctaSecondary: 'Contact Us',

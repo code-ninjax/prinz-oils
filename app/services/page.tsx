@@ -20,7 +20,7 @@ export default function ServicesPage() {
       title: 'Retail Fuel Supply',
       desc: 'We supply directly to our fuel stations and station owners for retail sales, ensuring consistent availability of quality products.',
       icon: Droplets,
-      bg: 'https://images.unsplash.com/photo-1544006659-f0b21f04cb1d?q=80&w=2070&auto=format&fit=crop',
+      bg: 'https://images.unsplash.com/photo-1545262810-77515befe149?q=80&w=2070&auto=format&fit=crop',
       color: 'bg-blue-600'
     },
     {
@@ -34,7 +34,7 @@ export default function ServicesPage() {
       title: 'Oil & Gas Supply',
       desc: 'We supply refined petroleum products to oil and gas companies, meeting their operational requirements with consistency.',
       icon: Globe,
-      bg: 'https://images.unsplash.com/photo-1586528116311-ad86d7c71107?q=80&w=2070&auto=format&fit=crop',
+      bg: 'https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?q=80&w=2070&auto=format&fit=crop',
       color: 'bg-green-600'
     },
     {
@@ -48,14 +48,14 @@ export default function ServicesPage() {
       title: 'NMDPRA Compliance',
       desc: 'We ensure all our clients have valid storage licenses and are in full compliance with NMDPRA regulations before delivery.',
       icon: ShieldCheck,
-      bg: 'https://images.unsplash.com/photo-1581094288338-2314dddb7ecc?q=80&w=2070&auto=format&fit=crop',
+      bg: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=2070&auto=format&fit=crop',
       color: 'bg-red-600'
     },
     {
       title: 'Regional Distribution',
       desc: 'Our coverage includes all major cities in the South-South and South-East regions of Nigeria, reaching key markets reliably.',
       icon: Target,
-      bg: 'https://images.unsplash.com/photo-1509391366360-fe5bb58583bb?q=80&w=2070&auto=format&fit=crop',
+      bg: '/images/logistics.jpg',
       color: 'bg-yellow-500'
     },
   ];
@@ -152,17 +152,12 @@ export default function ServicesPage() {
                 <div className="absolute -inset-4 bg-primary/10 rounded-3xl blur-3xl group-hover:bg-primary/20 transition-all duration-700" />
                 <div className="relative rounded-[3rem] overflow-hidden shadow-2xl border border-white">
                   <Image 
-                    src="https://images.unsplash.com/photo-1596706067679-c591e1d3e89a?q=80&w=1974&auto=format&fit=crop"
+                    src="/images/logistics.jpg"
                     alt="Safety Commitment"
                     width={800}
                     height={1000}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[2000ms]"
                   />
-                  {/* Floating stats card */}
-                  <div className="absolute top-12 left-12 bg-white/90 backdrop-blur-md p-8 rounded-3xl shadow-2xl border border-white/50">
-                    <div className="text-5xl font-black text-primary mb-1">0</div>
-                    <div className="text-gray-500 text-xs uppercase tracking-widest font-bold">Incidents in 2025</div>
-                  </div>
                 </div>
               </div>
            </div>

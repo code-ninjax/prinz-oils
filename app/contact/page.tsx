@@ -32,7 +32,7 @@ export default function ContactPage() {
               <div className="space-y-8">
                 {[
                   { icon: MapPin, title: 'Headquarters', desc: 'No.8 RSU Maingate by Ikwere Road, Port Harcourt, Nigeria' },
-                  { icon: Phone, title: 'Phone', desc: '+234 800 PRINZ OIL' },
+                  { icon: Phone, title: 'Phone', desc: '07065131255, 09044532815' },
                   { icon: Mail, title: 'Email', desc: 'Info@prinz-oil.com.ng' },
                 ].map((item, idx) => (
                   <div key={idx} className="flex gap-6 group">
