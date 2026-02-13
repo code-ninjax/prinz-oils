@@ -57,7 +57,7 @@ export const TeamModal = ({ member, onClose }: { member: TeamMember; onClose: ()
               src={member.image_url} 
               alt={member.name} 
               fill 
-              className="object-cover"
+              className="object-cover object-top"
             />
           ) : (
             <div className="w-full h-full flex items-center justify-center bg-primary/5">

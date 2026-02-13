@@ -15,13 +15,13 @@ export const TeamCard = ({ member, onClick }: { member: TeamMember; onClick?: ()
       onClick={onClick}
     >
       {/* Image Container */}
-      <div className="relative h-2/3 w-full overflow-hidden bg-gray-100">
+      <div className="relative h-2/3 w-full overflow-hidden bg-gray-50">
         {member.image_url ? (
           <Image 
             src={member.image_url} 
             alt={member.name} 
             fill 
-            className="object-contain p-4 group-hover:scale-105 transition-transform duration-[1500ms] ease-out"
+            className="object-cover object-top group-hover:scale-105 transition-transform duration-[1500ms] ease-out"
           />
         ) : (
           <div className="w-full h-full flex items-center justify-center">
