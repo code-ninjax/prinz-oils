@@ -4,7 +4,7 @@ import { useEffect, useState, useRef } from 'react';
 import { supabase } from '@/lib/supabaseClient';
 import { useRouter } from 'next/navigation';
 import { Button } from '@/components/Button';
-import { Plus, Edit2, Trash2, LogOut, Users, BarChart, Upload, X, Loader2 } from 'lucide-react';
+import { Plus, Edit2, Trash2, LogOut, Users, BarChart, Upload, X, Loader2, Menu } from 'lucide-react';
 
 export default function AdminDashboard() {
   const router = useRouter();
@@ -28,6 +28,8 @@ export default function AdminDashboard() {
     linkedin_url: '',
     twitter_url: ''
   });
+
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   useEffect(() => {
     checkUser();
@@ -187,21 +189,35 @@ export default function AdminDashboard() {
   if (loading) return <div className="p-10">Loading...</div>;
 
   return (
-    <div className="min-h-screen bg-gray-100 flex">
+    <div className="min-h-screen bg-gray-100 flex relative">
+      {/* Mobile Sidebar Overlay */}
+      {sidebarOpen && (
+        <div 
+          className="fixed inset-0 bg-black/50 z-40 md:hidden"
+          onClick={() => setSidebarOpen(false)}
+        />
+      )}
+
       {/* Sidebar */}
-      <aside className="w-64 bg-primary text-white hidden md:block">
-        <div className="p-6">
+      <aside className={`
+        fixed md:static inset-y-0 left-0 w-64 bg-primary text-white z-50 transform transition-transform duration-300 ease-in-out
+        ${sidebarOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'}
+      `}>
+        <div className="p-6 flex justify-between items-center">
           <h2 className="text-2xl font-bold">Prinz<span className="text-accent">Admin</span></h2>
+          <button className="md:hidden" onClick={() => setSidebarOpen(false)}>
+            <X size={24} />
+          </button>
         </div>
         <nav className="mt-6">
           <button 
-            onClick={() => setActiveTab('overview')}
+            onClick={() => { setActiveTab('overview'); setSidebarOpen(false); }}
             className={`w-full flex items-center px-6 py-3 text-left hover:bg-white/10 ${activeTab === 'overview' ? 'bg-white/10 border-r-4 border-accent' : ''}`}
           >
             <BarChart size={20} className="mr-3" /> Overview
           </button>
           <button 
-            onClick={() => setActiveTab('team')}
+            onClick={() => { setActiveTab('team'); setSidebarOpen(false); }}
             className={`w-full flex items-center px-6 py-3 text-left hover:bg-white/10 ${activeTab === 'team' ? 'bg-white/10 border-r-4 border-accent' : ''}`}
           >
             <Users size={20} className="mr-3" /> Team Management
@@ -221,7 +237,12 @@ export default function AdminDashboard() {
              {activeTab === 'overview' ? 'Dashboard Overview' : 'Team Management'}
            </h1>
            <div className="md:hidden">
-             {/* Mobile menu toggle would go here */}
+             <button 
+               onClick={() => setSidebarOpen(true)}
+               className="p-2 text-gray-600 hover:bg-gray-200 rounded-lg transition-colors"
+             >
+               <Menu size={24} />
+             </button>
            </div>
         </div>
 
