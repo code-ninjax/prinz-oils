@@ -12,12 +12,14 @@ export default function ContactPage() {
     e.preventDefault();
     setIsSubmitting(true);
     const formData = new FormData(e.currentTarget);
+    const data = Object.fromEntries(formData.entries());
     
     try {
       const response = await fetch("https://api.formdrop.co/f/yzkfAMWb", {
         method: "POST",
-        body: formData,
+        body: JSON.stringify(data),
         headers: {
+          "Content-Type": "application/json",
           "Accept": "application/json"
         }
       });
@@ -116,11 +118,9 @@ export default function ContactPage() {
                    {/* Honeypot for simple spam protection (hidden) */}
                    <input type="text" name="_gotcha" style={{ display: 'none' }} />
                    
-                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                     <input required name="name" type="text" placeholder="Full Name" className="w-full bg-gray-50 border border-gray-100 rounded-2xl p-6 focus:outline-none focus:border-accent transition-all font-medium" />
+                   <div className="grid grid-cols-1 gap-8">
                      <input required name="email" type="email" placeholder="Email Address" className="w-full bg-gray-50 border border-gray-100 rounded-2xl p-6 focus:outline-none focus:border-accent transition-all font-medium" />
                    </div>
-                   <input required name="subject" type="text" placeholder="Subject" className="w-full bg-gray-50 border border-gray-100 rounded-2xl p-6 focus:outline-none focus:border-accent transition-all font-medium" />
                    <textarea required name="message" placeholder="Your Message" rows={6} className="w-full bg-gray-50 border border-gray-100 rounded-2xl p-6 focus:outline-none focus:border-accent transition-all font-medium" />
                    
                    <Button type="submit" disabled={isSubmitting} className="w-full py-8 text-xl font-black bg-primary flex items-center justify-center gap-4 group disabled:opacity-70">
