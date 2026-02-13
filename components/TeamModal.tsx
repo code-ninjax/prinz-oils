@@ -91,13 +91,22 @@ export const TeamModal = ({ member, onClose }: { member: TeamMember; onClose: ()
               <span className="text-sm font-medium break-all">Info@prinz-oil.com.ng</span>
             </a>
             <a 
-              href="tel:+234000000000" 
+              href="tel:07065131255" 
               className="flex items-center gap-3 text-gray-500 hover:text-accent transition-colors group"
             >
               <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center text-accent group-hover:bg-accent group-hover:text-white transition-all shrink-0">
                 <Phone size={18} />
               </div>
-              <span className="text-sm font-medium">Contact Prinz-Oil Limited</span>
+              <span className="text-sm font-medium">07065131255</span>
+            </a>
+            <a 
+              href="tel:09044532815" 
+              className="flex items-center gap-3 text-gray-500 hover:text-accent transition-colors group"
+            >
+              <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center text-accent group-hover:bg-accent group-hover:text-white transition-all shrink-0">
+                <Phone size={18} />
+              </div>
+              <span className="text-sm font-medium">09044532815</span>
             </a>
           </div>
         </div>
