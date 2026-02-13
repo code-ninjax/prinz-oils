@@ -191,7 +191,7 @@ export default function Home() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
           <h2 className="text-4xl md:text-7xl font-black mb-10 leading-[1.1]">Partner With Us for Reliable <span className="text-accent underline decoration-white/20 underline-offset-8">Petroleum Supply</span>.</h2>
           <p className="text-xl text-gray-400 mb-12 max-w-3xl mx-auto font-normal leading-relaxed">
-            Whether you need fuel for your station, products for your industry, or a trusted supply partner — Prinz-Oil is here to deliver.
+            Whether you need fuel for your station, products for your industry, or a trusted supply partner — Prinz-Oil Limited is here to deliver.
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
             <Link href="/contact">

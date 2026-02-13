@@ -107,7 +107,7 @@ export default function ContactPage() {
                    </div>
                    <h3 className="text-2xl font-bold text-gray-900 mb-2">Message Sent!</h3>
                    <p className="text-gray-500 max-w-sm">
-                     Thank you for contacting Prinz-Oil. We&apos;ll get back to you shortly.
+                     Thank you for contacting Prinz-Oil Limited. We&apos;ll get back to you shortly.
                    </p>
                    <Button onClick={() => setSuccess(false)} variant="outline" className="mt-8">
                      Send another message

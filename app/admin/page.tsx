@@ -263,49 +263,60 @@ export default function AdminDashboard() {
               </Button>
             </div>
 
-            {/* Team List */}
-            <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
-              <table className="min-w-full divide-y divide-gray-200">
-                <thead className="bg-gray-50">
-                  <tr>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Name</th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Role</th>
-                    <th className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
-                  </tr>
-                </thead>
-                <tbody className="bg-white divide-y divide-gray-200">
-                  {team.length === 0 ? (
-                    <tr>
-                      <td colSpan={3} className="px-6 py-4 text-center text-gray-500">
-                        No team members found. <br/>
-                        <span className="text-xs">Click &quot;Add Member&quot; to get started.</span>
-                      </td>
-                    </tr>
-                  ) : (
-                    team.map((member) => (
-                      <tr key={member.id}>
-                        <td className="px-6 py-4 whitespace-nowrap">
-                          <div className="flex items-center">
-                            {member.image_url && (
-                              <img className="h-10 w-10 rounded-full object-cover mr-3" src={member.image_url} alt="" />
-                            )}
-                            <div className="text-sm font-medium text-gray-900">{member.name}</div>
-                          </div>
-                        </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{member.role}</td>
-                        <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                          <button onClick={() => openEdit(member)} className="text-indigo-600 hover:text-indigo-900 mr-4">
-                            <Edit2 size={18} />
-                          </button>
-                          <button onClick={() => handleDelete(member.id)} className="text-red-600 hover:text-red-900">
-                            <Trash2 size={18} />
-                          </button>
-                        </td>
-                      </tr>
-                    ))
-                  )}
-                </tbody>
-              </table>
+            {/* Team List - Cards */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {team.length === 0 ? (
+                <div className="col-span-full bg-white rounded-xl shadow-sm border border-gray-100 p-12 text-center">
+                  <div className="text-gray-400 mb-4">
+                    <Users size={48} className="mx-auto" />
+                  </div>
+                  <p className="text-lg font-medium text-gray-900 mb-2">No team members found</p>
+                  <p className="text-gray-500 mb-6">Get started by adding your first team member.</p>
+                  <Button onClick={() => setShowForm(true)} className="inline-flex items-center gap-2">
+                    <Plus size={18} /> Add Member
+                  </Button>
+                </div>
+              ) : (
+                team.map((member) => (
+                  <div key={member.id} className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow">
+                    <div className="aspect-square relative bg-gray-100">
+                      {member.image_url ? (
+                        <img className="w-full h-full object-cover object-top" src={member.image_url} alt={member.name} />
+                      ) : (
+                        <div className="w-full h-full flex items-center justify-center text-gray-400">
+                          <Users size={32} />
+                        </div>
+                      )}
+                      
+                      {/* Overlay Actions */}
+                      <div className="absolute top-2 right-2 flex gap-2">
+                        <button 
+                          onClick={() => openEdit(member)} 
+                          className="p-2 bg-white/90 backdrop-blur-sm rounded-full text-indigo-600 hover:text-indigo-700 shadow-sm transition-transform hover:scale-105"
+                          title="Edit"
+                        >
+                          <Edit2 size={16} />
+                        </button>
+                        <button 
+                          onClick={() => handleDelete(member.id)} 
+                          className="p-2 bg-white/90 backdrop-blur-sm rounded-full text-red-600 hover:text-red-700 shadow-sm transition-transform hover:scale-105"
+                          title="Delete"
+                        >
+                          <Trash2 size={16} />
+                        </button>
+                      </div>
+                    </div>
+                    
+                    <div className="p-5">
+                      <h3 className="font-bold text-gray-900 text-lg mb-1">{member.name}</h3>
+                      <p className="text-sm font-medium text-accent uppercase tracking-wide mb-3">{member.role}</p>
+                      {member.description && (
+                        <p className="text-sm text-gray-500 line-clamp-2">{member.description}</p>
+                      )}
+                    </div>
+                  </div>
+                ))
+              )}
             </div>
           </div>
         )}
@@ -325,8 +336,20 @@ export default function AdminDashboard() {
                   <input required type="text" value={formData.role} onChange={e => setFormData({...formData, role: e.target.value})} className="w-full px-4 py-2 border rounded-md" />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Description</label>
-                  <textarea rows={3} value={formData.description} onChange={e => setFormData({...formData, description: e.target.value})} className="w-full px-4 py-2 border rounded-md" />
+                  <div className="flex justify-between mb-1">
+                    <label className="block text-sm font-medium text-gray-700">Description</label>
+                    <span className={`text-xs ${formData.description.length > 500 ? 'text-red-500' : 'text-gray-400'}`}>
+                      {formData.description.length}/500
+                    </span>
+                  </div>
+                  <textarea 
+                    rows={3} 
+                    maxLength={500}
+                    value={formData.description} 
+                    onChange={e => setFormData({...formData, description: e.target.value})} 
+                    className="w-full px-4 py-2 border rounded-md" 
+                  />
+                  <p className="text-xs text-gray-400 mt-1">Maximum 500 characters.</p>
                 </div>
 
                 {/* Image Upload */}

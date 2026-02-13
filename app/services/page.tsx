@@ -117,7 +117,7 @@ export default function ServicesPage() {
                 <div className="text-primary font-black tracking-[0.3em] uppercase text-xs mb-4">Excellence</div>
                 <h2 className="text-4xl md:text-6xl font-black text-primary mb-8 leading-[1.1]">Unwavering Commitment to <span className="text-accent underline decoration-primary/10 underline-offset-8">Compliance</span>.</h2>
                 <p className="text-gray-600 text-xl mb-12 leading-relaxed">
-                  At Prinz-Oil, we ensure that our clients have valid storage licenses for the specific products being delivered to them and are in full compliance with NMDPRA regulations.
+                  At Prinz-Oil Limited, we ensure that our clients have valid storage licenses for the specific products being delivered to them and are in full compliance with NMDPRA regulations.
                 </p>
                 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 mb-12">

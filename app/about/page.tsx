@@ -14,7 +14,7 @@ export default function AboutPage() {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-4 mb-6">
             <div className="w-10 h-[2px] bg-accent" />
-            <span className="text-accent font-bold text-xs uppercase tracking-[0.3em]">About Prinz-Oil</span>
+            <span className="text-accent font-bold text-xs uppercase tracking-[0.3em]">About Prinz-Oil Limited</span>
           </div>
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-white mb-6 tracking-tight">
             Who We Are

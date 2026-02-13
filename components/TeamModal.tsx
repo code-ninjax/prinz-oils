@@ -39,19 +39,19 @@ export const TeamModal = ({ member, onClose }: { member: TeamMember; onClose: ()
 
       {/* Modal */}
       <div 
-        className="relative z-10 bg-white rounded-[2.5rem] max-w-lg w-full shadow-2xl overflow-hidden animate-[slideUp_0.4s_ease]"
+        className="relative z-10 bg-white rounded-[2rem] md:rounded-[2.5rem] w-full max-w-lg shadow-2xl overflow-hidden animate-[slideUp_0.4s_ease] flex flex-col max-h-[90vh]"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close button */}
         <button 
           onClick={onClose}
-          className="absolute top-6 right-6 z-20 w-10 h-10 bg-white/90 backdrop-blur-md rounded-full flex items-center justify-center text-gray-400 hover:text-primary hover:bg-white transition-all shadow-lg"
+          className="absolute top-4 right-4 md:top-6 md:right-6 z-30 w-10 h-10 bg-white/90 backdrop-blur-md rounded-full flex items-center justify-center text-gray-400 hover:text-primary hover:bg-white transition-all shadow-lg"
         >
           <X size={20} />
         </button>
 
         {/* Image */}
-        <div className="relative h-72 w-full overflow-hidden bg-gray-50">
+        <div className="relative h-64 md:h-72 w-full shrink-0 overflow-hidden bg-gray-50">
           {member.image_url ? (
             <Image 
               src={member.image_url} 
@@ -67,15 +67,15 @@ export const TeamModal = ({ member, onClose }: { member: TeamMember; onClose: ()
           <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent" />
         </div>
 
-        {/* Content */}
-        <div className="px-10 pb-10 -mt-8 relative z-10">
+        {/* Content - Scrollable */}
+        <div className="px-6 md:px-10 pb-10 -mt-8 relative z-10 overflow-y-auto">
           <div className="mb-1">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent/10 text-accent font-bold text-xs uppercase tracking-[0.2em] mb-4">
               {member.role}
             </div>
           </div>
-          <h2 className="text-3xl font-black text-primary mb-4 tracking-tight">{member.name}</h2>
-          <p className="text-gray-500 leading-relaxed font-normal text-base mb-8">
+          <h2 className="text-2xl md:text-3xl font-black text-primary mb-4 tracking-tight">{member.name}</h2>
+          <p className="text-gray-500 leading-relaxed font-normal text-sm md:text-base mb-8">
             {member.description || "Leading the energy frontier with expertise and vision."}
           </p>
 
@@ -85,19 +85,19 @@ export const TeamModal = ({ member, onClose }: { member: TeamMember; onClose: ()
               href="mailto:Info@prinz-oil.com.ng" 
               className="flex items-center gap-3 text-gray-500 hover:text-accent transition-colors group"
             >
-              <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center text-accent group-hover:bg-accent group-hover:text-white transition-all">
+              <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center text-accent group-hover:bg-accent group-hover:text-white transition-all shrink-0">
                 <Mail size={18} />
               </div>
-              <span className="text-sm font-medium">Info@prinz-oil.com.ng</span>
+              <span className="text-sm font-medium break-all">Info@prinz-oil.com.ng</span>
             </a>
             <a 
               href="tel:+234000000000" 
               className="flex items-center gap-3 text-gray-500 hover:text-accent transition-colors group"
             >
-              <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center text-accent group-hover:bg-accent group-hover:text-white transition-all">
+              <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center text-accent group-hover:bg-accent group-hover:text-white transition-all shrink-0">
                 <Phone size={18} />
               </div>
-              <span className="text-sm font-medium">Contact Prinz-Oil</span>
+              <span className="text-sm font-medium">Contact Prinz-Oil Limited</span>
             </a>
           </div>
         </div>

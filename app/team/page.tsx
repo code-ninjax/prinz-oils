@@ -46,7 +46,7 @@ export default function TeamPage() {
             Meet The Team
           </h1>
           <p className="text-lg md:text-xl text-white/60 max-w-xl font-normal leading-relaxed">
-            Meet the team driving Prinz-Oil towards becoming a leading petroleum distributor in Nigeria.
+            Meet the team driving Prinz-Oil Limited towards becoming a leading petroleum distributor in Nigeria.
           </p>
         </div>
       </section>
@@ -57,7 +57,7 @@ export default function TeamPage() {
           <div className="flex flex-col md:flex-row justify-between items-center mb-24 gap-8">
             <div className="max-w-2xl text-center md:text-left">
               <h2 className="text-4xl md:text-6xl font-black text-primary mb-6 tracking-tighter">Executives</h2>
-              <p className="text-gray-500 text-xl font-normal">The team behind Prinz-Oil&apos;s reliable petroleum distribution across Nigeria.</p>
+              <p className="text-gray-500 text-xl font-normal">The team behind Prinz-Oil Limited&apos;s reliable petroleum distribution across Nigeria.</p>
             </div>
             <div className="hidden md:flex gap-12 text-center">
                <div>
