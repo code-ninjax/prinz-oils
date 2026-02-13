@@ -86,20 +86,20 @@ export default function ServicesPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
             {services.map((service, idx) => (
-              <div key={idx} className="group relative h-[450px] rounded-[3rem] overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-700 border border-gray-50 bg-gray-50">
+              <div key={idx} className="relative h-[450px] rounded-[3rem] overflow-hidden shadow-lg border border-gray-50 bg-gray-50">
                 {/* Bg Image */}
-                <div className="absolute inset-0 bg-cover bg-center transition-transform duration-1000 group-hover:scale-110" style={{ backgroundImage: `url('${service.bg}')` }} />
+                <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url('${service.bg}')` }} />
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/95 via-primary/40 to-transparent z-10" />
                 
-                <div className="absolute inset-0 p-12 z-20 flex flex-col justify-end translate-y-12 group-hover:translate-y-0 transition-transform duration-500">
+                <div className="absolute inset-0 p-12 z-20 flex flex-col justify-end">
                   <div className={`w-16 h-16 ${service.color} rounded-2xl flex items-center justify-center text-white mb-8 shadow-2xl`}>
                     <service.icon size={32} />
                   </div>
                   <h3 className="text-3xl font-black text-white mb-6 leading-tight">{service.title}</h3>
-                  <p className="text-gray-300 text-lg leading-relaxed mb-8 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                  <p className="text-gray-300 text-lg leading-relaxed mb-8">
                     {service.desc}
                   </p>
-                  <Link href={`/services#contact`} className="inline-flex items-center gap-2 text-accent font-black uppercase text-xs tracking-widest opacity-0 group-hover:opacity-100 transition-opacity duration-700">
+                  <Link href={`/services#contact`} className="inline-flex items-center gap-2 text-accent font-black uppercase text-xs tracking-widest">
                     Learn More <ArrowRight size={16} />
                   </Link>
                 </div>

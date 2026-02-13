@@ -8,7 +8,7 @@ import Image from 'next/image';
 
 const slides = [
   {
-    title: 'Reliable Petroleum Supply Across Nigeria',
+    title: 'Reliable Petroleum Products Supply Across Nigeria',
     description: 'Prinz-Oil Limited is a major distributor and marketer of refined petroleum products — AGO, PMS, and HHK — across Nigeria.',
     bgImage: '/images/storage-tanks.jpg',
     ctaPrimary: 'Discover Prinz-Oil',

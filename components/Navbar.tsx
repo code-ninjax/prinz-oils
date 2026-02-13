@@ -1,6 +1,7 @@
 'use client';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Menu, X } from 'lucide-react';
 import { Button } from './Button';
 
@@ -35,11 +36,16 @@ export const Navbar = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex-shrink-0 flex items-center">
-            <Link href="/" className="flex items-center gap-2 group">
-              <div className="w-10 h-10 bg-accent rounded-xl flex items-center justify-center group-hover:rotate-12 transition-transform duration-300">
-                <span className="text-white font-black text-xl">P</span>
+            <Link href="/" className="flex items-center gap-3 group">
+              <div className="relative w-12 h-12 md:w-14 md:h-14 overflow-hidden rounded-xl border-2 border-white/10 group-hover:border-accent transition-all duration-300">
+                <Image 
+                  src="https://otiktpyazqotihijbwhm.supabase.co/storage/v1/object/public/images/44a127c6-b353-4796-b987-361a6a50939e-5798445238652177397.jpg" 
+                  alt="Prinz-Oil Logo" 
+                  fill
+                  className="object-cover"
+                />
               </div>
-              <span className="text-2xl font-black tracking-tighter text-white">
+              <span className="text-2xl md:text-3xl font-black tracking-tighter text-white">
                 PRINZ<span className="text-accent">OIL</span>
               </span>
             </Link>
@@ -99,7 +105,7 @@ export const Navbar = () => {
             className={`w-full max-w-xs transition-all transform ${
               isOpen ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
             }`}
-            style={{ transitionDelay: `${navLinks.length * 100}ms` }}
+             style={{ transitionDelay: `${navLinks.length * 100}ms` }}
           >
              <Button className="w-full py-6 text-lg font-black bg-accent text-white uppercase tracking-widest shadow-xl shadow-accent/20">
                Contact Us

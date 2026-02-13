@@ -1,8 +1,42 @@
-import Image from 'next/image';
-import { Mail, Phone, MapPin, Send } from 'lucide-react';
+'use client';
+
+import { Mail, Phone, MapPin, Send, Loader2, CheckCircle } from 'lucide-react';
 import { Button } from '@/components/Button';
+import { useState } from 'react';
 
 export default function ContactPage() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [success, setSuccess] = useState(false);
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setIsSubmitting(true);
+    const formData = new FormData(e.currentTarget);
+    
+    try {
+      const response = await fetch("https://api.formdrop.co/f/yzkfAMWb", {
+        method: "POST",
+        body: formData,
+        headers: {
+          "Accept": "application/json"
+        }
+      });
+      
+      if (response.ok) {
+        setSuccess(true);
+        // Reset form
+        (e.target as HTMLFormElement).reset();
+      } else {
+        alert("Something went wrong. Please try again.");
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      alert("Error submitting form. Please check your connection.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  }
+
   return (
     <main className="min-h-screen bg-white font-sans">
       {/* Page Header */}
@@ -13,20 +47,21 @@ export default function ContactPage() {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-4 mb-6">
             <div className="w-10 h-[2px] bg-accent" />
-            <span className="text-accent font-bold text-xs uppercase tracking-[0.3em]">Contact Us</span>
+            <span className="text-accent font-bold text-xs uppercase tracking-[0.3em]">Get in Touch</span>
           </div>
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-white mb-6 tracking-tight">
-            Get In Touch
+            Contact Us
           </h1>
           <p className="text-lg md:text-xl text-white/60 max-w-xl font-normal leading-relaxed">
-            Ready to partner with a trusted petroleum distributor? We're here to discuss your supply needs.
+            Reach out to our team for product inquiries, distribution partnerships, or general questions.
           </p>
         </div>
       </section>
 
-      <section className="py-32">
+      {/* Main Content */}
+      <section className="py-32 bg-white relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-24">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
             <div>
               <h2 className="text-4xl font-black text-primary mb-12 tracking-tighter">Contact Information</h2>
               <div className="space-y-8">
@@ -62,17 +97,41 @@ export default function ContactPage() {
             <div className="bg-white p-12 md:p-16 rounded-[4rem] shadow-2xl border border-gray-100 relative overflow-hidden">
                <div className="absolute top-0 right-0 w-64 h-64 bg-accent/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
                <h2 className="text-3xl font-black text-primary mb-10 relative z-10">Send us a Message</h2>
-               <form className="space-y-8 relative z-10">
-                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                   <input type="text" placeholder="Full Name" className="w-full bg-gray-50 border border-gray-100 rounded-2xl p-6 focus:outline-none focus:border-accent transition-all font-medium" />
-                   <input type="email" placeholder="Email Address" className="w-full bg-gray-50 border border-gray-100 rounded-2xl p-6 focus:outline-none focus:border-accent transition-all font-medium" />
+               
+               {success ? (
+                 <div className="flex flex-col items-center justify-center text-center py-20 animate-in fade-in duration-500">
+                   <div className="w-20 h-20 bg-green-100 text-green-600 rounded-full flex items-center justify-center mb-6">
+                     <CheckCircle size={40} />
+                   </div>
+                   <h3 className="text-2xl font-bold text-gray-900 mb-2">Message Sent!</h3>
+                   <p className="text-gray-500 max-w-sm">
+                     Thank you for contacting Prinz-Oil. We&apos;ll get back to you shortly.
+                   </p>
+                   <Button onClick={() => setSuccess(false)} variant="outline" className="mt-8">
+                     Send another message
+                   </Button>
                  </div>
-                 <input type="text" placeholder="Subject" className="w-full bg-gray-50 border border-gray-100 rounded-2xl p-6 focus:outline-none focus:border-accent transition-all font-medium" />
-                 <textarea placeholder="Your Message" rows={6} className="w-full bg-gray-50 border border-gray-100 rounded-2xl p-6 focus:outline-none focus:border-accent transition-all font-medium" />
-                 <Button className="w-full py-8 text-xl font-black bg-primary flex items-center justify-center gap-4 group">
-                    Send Message <Send size={20} className="group-hover:translate-x-2 transition-transform" />
-                 </Button>
-               </form>
+               ) : (
+                 <form onSubmit={handleSubmit} className="space-y-8 relative z-10">
+                   {/* Honeypot for simple spam protection (hidden) */}
+                   <input type="text" name="_gotcha" style={{ display: 'none' }} />
+                   
+                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                     <input required name="name" type="text" placeholder="Full Name" className="w-full bg-gray-50 border border-gray-100 rounded-2xl p-6 focus:outline-none focus:border-accent transition-all font-medium" />
+                     <input required name="email" type="email" placeholder="Email Address" className="w-full bg-gray-50 border border-gray-100 rounded-2xl p-6 focus:outline-none focus:border-accent transition-all font-medium" />
+                   </div>
+                   <input required name="subject" type="text" placeholder="Subject" className="w-full bg-gray-50 border border-gray-100 rounded-2xl p-6 focus:outline-none focus:border-accent transition-all font-medium" />
+                   <textarea required name="message" placeholder="Your Message" rows={6} className="w-full bg-gray-50 border border-gray-100 rounded-2xl p-6 focus:outline-none focus:border-accent transition-all font-medium" />
+                   
+                   <Button type="submit" disabled={isSubmitting} className="w-full py-8 text-xl font-black bg-primary flex items-center justify-center gap-4 group disabled:opacity-70">
+                      {isSubmitting ? (
+                        <>Sending... <Loader2 size={20} className="animate-spin" /></>
+                      ) : (
+                        <>Send Message <Send size={20} className="group-hover:translate-x-2 transition-transform" /></>
+                      )}
+                   </Button>
+                 </form>
+               )}
             </div>
           </div>
         </div>
