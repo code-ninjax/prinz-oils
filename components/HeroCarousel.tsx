@@ -17,8 +17,8 @@ const slides = [
     linkSecondary: '/services',
   },
   {
-    title: 'Sustainable Petroleum Distribution',
-    description: 'Prinz-Oil Limited is a major distributor and marketer of refined petroleum products — AGO, PMS, and HHK — across Nigeria.',
+    title: 'Reliable Petroleum Products Supply Across Nigeria',
+    description: 'Direct Supply to fuel stations, manufacturing industries, and oil & gas companies with full NMDPRA compliance.',
     bgImage: '/images/industrial-port.jpg',
     ctaPrimary: 'Our Services',
     ctaSecondary: 'Contact Us',
