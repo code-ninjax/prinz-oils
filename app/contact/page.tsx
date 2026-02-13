@@ -15,7 +15,7 @@ export default function ContactPage() {
     const data = Object.fromEntries(formData.entries());
     
     try {
-      const response = await fetch("https://api.formdrop.co/f/yzkfAMWb", {
+      const response = await fetch("https://api.formdrop.co/f/6H9EgUCE", {
         method: "POST",
         body: JSON.stringify(data),
         headers: {

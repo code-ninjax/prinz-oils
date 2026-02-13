@@ -17,8 +17,8 @@ import { Button } from '@/components/Button';
 export default function ServicesPage() {
   const services = [
     {
-      title: 'Retail Fuel Supply',
-      desc: 'We supply directly to our fuel stations and station owners for retail sales, ensuring consistent availability of quality products.',
+      title: 'Wholesale Petroleum Products Supply',
+      desc: 'Direct Supply to Filling station owners for retail sales, ensuring consistent availability of quality products.',
       icon: Droplets,
       bg: 'https://images.unsplash.com/photo-1545262810-77515befe149?q=80&w=2070&auto=format&fit=crop',
       color: 'bg-blue-600'
